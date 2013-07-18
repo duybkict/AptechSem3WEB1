@@ -10,8 +10,8 @@
 	<link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.min.css" />
 	<link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap-responsive.min.css" />
 	<link rel="stylesheet" type="text/css" href="css/style.css" />
-	<link rel='stylesheet' type='text/css' href='css/opensans.css' />
-	<link href='http://fonts.googleapis.com/css?family=Jura:400,600,500,300' rel='stylesheet' type='text/css' />
+	<link rel='stylesheet' type='text/css' href='css/OpenSans.css' />
+	<link rel='stylesheet' type='text/css' href='css/MyriadPro.css' />
 </head>
 <body>
 	<div class="navbar">
