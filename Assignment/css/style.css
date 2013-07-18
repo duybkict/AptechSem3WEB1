@@ -3,37 +3,16 @@ body {
 	color: rgb(0, 0, 0);
 }
 
-h2 {
-	font: 40px/1.1em "Open Sans","sans-serif";
-}
+h2 {font: 40px/1.1em "Open Sans","sans-serif";}
+h4 {font: 32px/1.3em "Open Sans","sans-serif";}
+h5 {font: 22px/1.2em "Open Sans","sans-serif";display: inline;}
+h6 {font: 13px/1.3em "Open Sans","sans-serif";}
 
-h4 {
-	font: 32px/1.3em "Open Sans","sans-serif";
-}
+.text-center {text-align: center;}
 
-h5 {
-	font: 22px/1.2em "Open Sans","sans-serif";
-}
-
-h6 {
-	font: 13px/1.3em "Open Sans","sans-serif";
-}
-
-.text-center {
-	text-align: center;
-}
-
-.font-bold {
-	font-weight: bold;
-}
-
-.font-red {
-	color: rgb(204, 16, 19);
-}
-
-.font-white {
-	color: rgb(255, 255, 255);
-}
+.font-bold {font-weight: bold;}
+.font-red {color: rgb(204, 16, 19);}
+.font-white {color: rgb(255, 255, 255);}
 
 .btn-red {
 	color: rgb(255, 255, 255);
@@ -45,105 +24,117 @@ h6 {
 	cursor: pointer !important;
 }
 
-.btn-red:hover {
-	background-color: rgb(136, 10, 12);
-}
+	.btn-red:hover {
+		background-color: rgb(136, 10, 12);
+	}
 
 .border-bottom {
 	padding-bottom: 30px !important;
 	border-bottom: 1px dotted rgb(171, 171, 171);
 }
 
-.navbar {	
+.navbar {
 	margin-bottom: 0px;
 }
 
-.navbar .navbar-banner {
-	height: 80px;
-	background: rgb(204, 16, 19);
-}
+	.navbar .navbar-banner {
+		height: 80px;
+		background: rgb(204, 16, 19);
+	}
 
-.navbar .navbar-banner a {
-	
-}
+		.navbar .navbar-banner a.brandname {
+			margin-top: 20px;
+			text-decoration: none;
+			font: 33px/1.1em "Jura","sans-serif" !important;
+			color: rgb(237, 237, 237) !important;
+			cursor: pointer;
+		}
 
-.navbar .navbar-banner a.brandname {
-	margin-top: 20px;
-	text-decoration: none;
-	font: 33px/1.1em "Jura","sans-serif";
-	color: rgb(237, 237, 237) !important;
-	cursor: pointer;
-}
+			.navbar .navbar-banner a.brandname img {
+				margin-top: -10px;
+				margin-right: 10px;
+			}
 
-.navbar .navbar-banner a.brandname img {
-	margin-top: -10px;
-	margin-right: 10px;
-}
+		.navbar .navbar-banner .container h5 {
+			margin-top: 27px;
+		}
 
-.navbar .navbar-banner h5 {
-	margin-top: 27px;
-}
+	.navbar .navbar-inner {
+		border: none;
+		background-image: none;
+		background-color: rgb(255, 255, 255);
+	}
 
-.navbar a {
-	color: rgb(0, 0, 0) !important;
-	text-shadow: none !important;
-}
+		.navbar .navbar-inner a {
+			color: rgb(0, 0, 0) !important;
+			text-shadow: none !important;
+			font: 18px "Open Sans","sans-serif" !important;
+		}
 
-.navbar li {
-	padding: 3px 10px;
-	min-width: 100px;
-	text-align: center;
-	transition: background-color 0.4s ease 0s;
-	color: rgb(0, 0, 0);
-}
+		.navbar .navbar-inner li {
+			height: 45px;
+			padding: 3px 5px;
+			min-width: 120px;
+			text-align: center;
+			transition: background-color 0.4s ease 0s;
+			color: rgb(0, 0, 0);
+		}
 
-.navbar .nav > .active {
-	background-color: rgb(0, 0, 0);
-}
+		.navbar .navbar-inner .nav > .active {
+			background-color: rgb(0, 0, 0);
+		}
 
-.navbar .nav > .active > a {
-	color: rgb(255, 255, 255) !important;
-	background-color: rgb(0, 0, 0) !important;
-}
+			.navbar .navbar-inner .nav > .active > a {
+				color: rgb(255, 255, 255) !important;
+				background-color: rgb(0, 0, 0) !important;
+			}
 
-.navbar li:hover {
-	background-color: rgb(204, 16, 19);
-}
+		.navbar .navbar-inner li:hover {
+			background-color: rgb(204, 16, 19);
+		}
 
-.navbar .navbar-inner {
-	border: none;
-    background-image: none;
-	background-color: rgb(255, 255, 255);
-}
 
-.navbar .container {
-	width: 1170px;
-}
+
+	.navbar .container {
+		width: 1170px;
+	}
+
+	.navbar .navbar-inner .nav .shopping_cart {
+		width: 32px;
+		height: 32px;
+		margin-right: 5px;
+		margin-top: -8px;
+	}
 
 .jumbotron {
 	padding: 30px 10px 10px;
 	background: #EDEDED;
 }
 
-.jumbotron img {
-	display: block;
-}
+	.jumbotron img {
+		display: block;
+	}
 
 .categories {
 	padding: 30px 10px;
 }
 
+	.categories > div {
+		margin-right: 25px;
+	}
+
 .feature-box {
-	margin: 20px 0px;
-	padding: 10px 30px;
+	margin-bottom: 50px;
+	padding: 10px 25px;
 }
 
-.feature-box img {
-	padding-left: 20px;
-}
+	.feature-box img {
+		padding-left: 20px;
+	}
 
 .footer {
-	padding: 13px;
-	color: #ffffff;
+	padding: 10px 0px 4px;
+	color: rgb(237, 237, 237);
 	background: #000000;
+	font: 13px/1.3em "Open Sans","sans-serif";
 }
