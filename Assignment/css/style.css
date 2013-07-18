@@ -86,6 +86,19 @@ h6 {font: 13px/1.3em "Open Sans","sans-serif";}
 			color: rgb(0, 0, 0);
 		}
 
+		.navbar .navbar-inner .input-append {
+			margin: 8px auto -21px;
+		}
+
+			.navbar .navbar-inner .input-append input {
+				padding: 7px 9px;
+				font-size: 16px;
+			}
+
+			.navbar .navbar-inner .input-append button {
+				padding: 7px 10px;
+			}
+
 		.navbar .navbar-inner .nav > .active {
 			background-color: rgb(0, 0, 0);
 		}

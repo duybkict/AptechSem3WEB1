@@ -41,6 +41,12 @@
 							<a href="#">Visit Us</a>
 						</li>
 					</ul>
+					<div class="input-append">
+						<form>
+							<input class="span4" name="searchQuery" id="searchQuery" type="text" placeholder="Search" />
+							<button class="btn" type="submit">Go</button>
+						</form>
+					</div>
 					<ul class="nav pull-right">
 						<li class="">
 							<a href="#"><img class="shopping_cart" src="resources/img/shopping_cart.png" />Cart: 0</a>
