@@ -133,7 +133,7 @@
 				<!-- row-products -->
 				<div class="row row-products">
 					<a href="#" class="clearfix">
-						<h3><span class="font-red">Shocking</span> Deals</h3>
+						<h3><span class="font-red">Special</span> Deals</h3>
 						<span>View more&nbsp;&raquo; </span>
 					</a>
 					<div class="product-box">
