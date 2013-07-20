@@ -258,8 +258,9 @@ a {
 		}
 
 		.row-products .product-box .product-discount-rate {
-			margin-left: 5px;
-			border-radius: 5px;
+			position: relative;
+			top: -4px;
+			margin-left: 3px;
 			padding: 2px 7px;
 			color: rgb(255, 255, 255);
 			font: bold 13px "Open Sans","sans-serif";

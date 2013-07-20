@@ -68,6 +68,7 @@
     <Content Include="Global.asax" />
     <Content Include="Index.aspx" />
     <Content Include="js\jquery.js" />
+    <Content Include="js\validate.min.js" />
     <Content Include="resources\fonts\mpro-bold-webfont.svg" />
     <Content Include="resources\fonts\mpro-boldcond-webfont.svg" />
     <Content Include="resources\fonts\mpro-boldcondit-webfont.svg" />
@@ -89,6 +90,11 @@
     <Content Include="resources\img\mobile.jpg" />
     <Content Include="resources\img\new_arrivals.jpg" />
     <Content Include="resources\img\shopping_cart.png" />
+    <Content Include="resources\products\apple-4397-74964-1-catalog.jpg" />
+    <Content Include="resources\products\blackberry-2662-56776-1-catalog.jpg" />
+    <Content Include="resources\products\nokia-7194-07184-1-catalog.jpg" />
+    <Content Include="resources\products\samsung-3642-11236-1-catalog.jpg" />
+    <Content Include="template\documents.html" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
@@ -151,6 +157,7 @@
     <Content Include="resources\fonts\mpro-semiboldit-webfont.eot" />
     <Content Include="resources\fonts\mpro-semiboldit-webfont.ttf" />
     <Content Include="resources\fonts\mpro-semiboldit-webfont.woff" />
+    <Content Include="resources\products\Thumbs.db" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -158,6 +165,7 @@
       <DependentUpon>Web.config</DependentUpon>
     </None>
   </ItemGroup>
+  <ItemGroup />
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
