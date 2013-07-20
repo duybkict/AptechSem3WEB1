@@ -12,6 +12,10 @@
 	<link rel='stylesheet' type='text/css' href='css/OpenSans.css' />
 	<link rel='stylesheet' type='text/css' href='css/MyriadPro.css' />
 	<link rel="stylesheet" type="text/css" href="css/style.css" />
+
+	<script type="text/javascript" src="js/jquery.min.js"></script>
+	<script type="text/javascript" src="bootstrap/js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="js/validate.min.js"></script>
 </head>
 <body>
 
