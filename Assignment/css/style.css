@@ -3,16 +3,33 @@ body {
 	color: rgb(0, 0, 0);
 }
 
-h2 {font: 40px/1.1em "Open Sans","sans-serif";}
-h4 {font: 32px/1.3em "Open Sans","sans-serif";}
-h5 {font: 22px/1.2em "Open Sans","sans-serif";display: inline;}
-h6 {font: 13px/1.3em "Open Sans","sans-serif";}
+h2 {
+	font: 40px/1.1em "Open Sans","sans-serif";
+}
 
-.text-center {text-align: center;}
+h3 {
+	font: 32px/1.3em "Open Sans","sans-serif";
+}
 
-.font-bold {font-weight: bold;}
-.font-red {color: rgb(204, 16, 19);}
-.font-white {color: rgb(255, 255, 255);}
+h6 {
+	font: 13px/1.3em "Open Sans","sans-serif";
+}
+
+a {
+	transition: background-color 0.4s ease 0s, color 0.4s ease 0s;
+}
+
+	a:hover {
+
+	}
+
+.font-bold {
+	font-weight: bold;
+}
+
+.font-red {
+	color: rgb(204, 16, 19);
+}
 
 .btn-red {
 	min-width: 120px;
@@ -34,13 +51,12 @@ h6 {font: 13px/1.3em "Open Sans","sans-serif";}
 		background-color: rgb(136, 10, 12);
 	}
 
-.border-bottom {
-	padding-bottom: 30px !important;
-	border-bottom: 1px dotted rgb(171, 171, 171);
+.container {
+	width: 960px !important;
 }
 
 .navbar {
-	margin-bottom: 0px;
+	margin: 0px auto;
 }
 
 	.navbar .navbar-banner {
@@ -48,21 +64,27 @@ h6 {font: 13px/1.3em "Open Sans","sans-serif";}
 		background: rgb(204, 16, 19);
 	}
 
-		.navbar .navbar-banner a.brandname {
+		.navbar .navbar-banner .brandname {
 			margin-top: 20px;
 			text-decoration: none;
 			font: 33px/1.1em "MyriadProRegular","sans-serif" !important;
 			color: rgb(237, 237, 237) !important;
-			cursor: pointer;
 		}
 
-			.navbar .navbar-banner a.brandname img {
+			.navbar .navbar-banner .brandname img {
 				margin-top: -10px;
 				margin-right: 10px;
 			}
 
-		.navbar .navbar-banner .container h5 {
+		.navbar .navbar-banner .contact {
+			float: right;
 			margin-top: 27px;
+			margin-right: 5px;
+			font: bold 22px/1.2em "Open Sans","sans-serif";
+			color: rgb(255, 255, 255);
+		}
+
+		.navbar .navbar-banner .container h5 {
 		}
 
 	.navbar .navbar-inner {
@@ -71,32 +93,37 @@ h6 {font: 13px/1.3em "Open Sans","sans-serif";}
 		background-color: rgb(255, 255, 255);
 	}
 
-		.navbar .navbar-inner a {
-			color: rgb(0, 0, 0) !important;
-			text-shadow: none !important;
-			font: 18px "Open Sans","sans-serif" !important;
-		}
-
 		.navbar .navbar-inner li {
+			vertical-align: baseline;
 			height: 45px;
-			padding: 3px 5px;
+			padding: 0px;
 			min-width: 120px;
 			text-align: center;
 			transition: background-color 0.4s ease 0s;
 			color: rgb(0, 0, 0);
 		}
 
-		.navbar .navbar-inner .input-append {
-			margin: 8px auto -21px;
+			.navbar .navbar-inner li a {				
+				padding-top: 12px;
+				color: rgb(0, 0, 0) !important;
+				text-shadow: none !important;
+				font: 15px "Open Sans","sans-serif" !important;
+			}
+
+		.navbar .navbar-inner .form-search {
+			display: inline-block;
+			margin: 0px;
+			padding-top: 4px;			
 		}
 
-			.navbar .navbar-inner .input-append input {
+			.navbar .navbar-inner .form-search input {	
+				width: 270px;			
 				padding: 7px 9px;
 				font-size: 16px;
 			}
 
-			.navbar .navbar-inner .input-append button {
-				padding: 7px 10px;
+			.navbar .navbar-inner .form-search button {
+				padding: 7px 9px;
 			}
 
 		.navbar .navbar-inner .nav > .active {
@@ -108,39 +135,145 @@ h6 {font: 13px/1.3em "Open Sans","sans-serif";}
 				background-color: rgb(0, 0, 0) !important;
 			}
 
+		.navbar .navbar-inner .nav.pull-right {
+			background-color: rgb(254, 208, 35);
+		}
+
 		.navbar .navbar-inner li:hover {
 			background-color: rgb(204, 16, 19);
 		}
 
-
-
-	.navbar .container {
-		width: 1170px;
-	}
-
-	.navbar .navbar-inner .nav .shopping_cart {
-		width: 32px;
-		height: 32px;
-		margin-right: 5px;
-		margin-top: -8px;
-	}
+		.navbar .navbar-inner .nav .shopping_cart {
+			width: 32px;
+			height: 32px;
+			margin-right: 5px;
+			margin-top: -8px;
+		}
 
 .jumbotron {
 	padding: 30px 10px 10px;
 	background: #EDEDED;
 }
 
+	.jumbotron .subtitle {
+		font: bold 22px/1.2em "Open Sans","sans-serif";
+		color: rgb(204, 16, 19);
+	}
+
 	.jumbotron img {
 		display: block;
 	}
 
-.categories {
-	padding: 30px 10px;
+.content .row-categories {
+	margin-top: 50px;
+	margin-bottom: 35px;
+	align-content: center;
 }
 
-	.categories > div {
-		margin-right: 25px;
+	.content .row-categories > div {
+		text-align: center;
+		display: inline-block;
+		width: 19.65%;
 	}
+
+.row-products {
+	margin-bottom: 15px;
+}
+
+	.row-products a {
+		display: block;
+	}
+
+	.row-products > a {
+		height: 32px;
+		padding-left: 10px;
+		border-bottom: 4px solid rgb(204, 16, 19);
+		margin-bottom: 5px;
+	}
+
+		.row-products > a > h3 {
+			float: left;
+			margin: 0px;
+			margin-top: -5px;			
+		}
+
+		.row-products > a > span {
+			float: right;
+			margin-top: 6px;
+			margin-right: 15px;
+		}
+
+		.row-products > a:hover {
+			background-color: rgb(220, 220, 220);
+		}
+
+		.row-products > a:hover {
+			text-decoration: none;
+		}
+
+	.row-products .product-box {
+		position: relative;
+		margin: 0px 10px;
+		float:left;
+		width: 22%;
+		min-height: 310px;
+		border: 2px solid rgb(255, 255, 255);
+		border-radius: 5px;
+		transition: border-color 0.4s ease 0s;
+	}
+
+		.row-products .product-box:hover {
+			border: 2px solid rgb(0, 85, 128);
+		}
+
+		.row-products .product-box button {
+			position: absolute;
+			width: 150px;
+			top: 150px;
+			left: 30px;
+			display: none;
+		}
+
+		.row-products .product-box a {
+			padding: 20px 10px;
+			font: 13px "Open Sans","sans-serif";
+		}
+
+			.row-products .product-box a:hover {
+				text-decoration: none;
+				color: rgb(0, 85, 128);
+			}
+
+		.row-products .product-box .old-product-price {
+			display: block;
+			font: 12px "Open Sans","sans-serif";
+			color: rgb(51, 51, 51);
+			text-decoration: line-through;
+		}
+
+		.row-products .product-box .product-price {
+			display: inline-block;
+			font: bold 15px "Open Sans","sans-serif";
+			color: rgb(204, 16, 19);
+		}
+
+		.row-products .product-box .product-discount-rate {
+			margin-left: 5px;
+			border-radius: 5px;
+			padding: 2px 7px;
+			color: rgb(255, 255, 255);
+			font: bold 13px "Open Sans","sans-serif";
+			background-color: rgb(204, 16, 19);
+		}
+
+		.row-products .product-box:hover button {
+			display: block;
+		}
+
+		.row-products .product-box img {
+			width: 100%;
+			margin-bottom: 10px;
+		}
 
 .feature-box {
 	margin-bottom: 50px;
