@@ -19,7 +19,7 @@ CREATE TABLE Product (
 )
 GO
 -- DROP TABLE Type
-CREATE TABLE Type (
+CREATE TABLE [Type] (
 	id int PRIMARY KEY IDENTITY,
 	name varchar(256) NOT NULL,
 	alias varchar(256) NOT NULL UNIQUE,
@@ -36,15 +36,18 @@ CREATE TABLE Category (
 	[type_id] int NOT NULL REFERENCES Type(id),
 	publish bit DEFAULT 1,
 	created datetime NOT NULL DEFAULT GETDATE(),
-	modified timestamp
+	modified timestamp,
+	CONSTRAINT unCategory UNIQUE (id, [type_id]),
 )
 GO 
 -- DROP TABLE CategoryDetail
 CREATE TABLE CategoryDetail (
 	id int PRIMARY KEY IDENTITY,
 	product_id int NOT NULL REFERENCES Product(id),
-	category_id int NOT NULL REFERENCES Category(id),
-	CONSTRAINT unCategoryDetail UNIQUE (product_id, category_id)
+	category_id int NOT NULL,
+	[type_id] int NOT NULL,
+	CONSTRAINT unCategoryDetail UNIQUE (product_id, [type_id]),
+	CONSTRAINT fkCategoryDetail_Category FOREIGN KEY (category_id, [type_id]) REFERENCES Category(id, [type_id])
 )
 GO
 -- DROP TABLE Contact
