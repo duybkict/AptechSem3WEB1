@@ -1,0 +1,83 @@
+﻿<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8; width=device-width" name="viewport" />
+	<title>Electonic Shop</title>
+	
+	@Styles.Render("~/Content/bootstrap")
+	@Styles.Render("~/Content/fonts")
+	@Styles.Render("~/Content/custom")
+    @Scripts.Render("~/bundle/jquery")
+	@Scripts.Render("~/Scripts/bootstrap")
+	@Scripts.Render("~/Scripts/validate")
+</head>
+<body>
+
+	<!-- navbar -->
+	<div class="navbar">
+
+		<!-- navbar-banner -->
+		<div class="navbar-banner">
+			<div class="container">
+				<a class="brandname pull-left" href="Index.aspx">
+					<img src="resources/img/logo.png" />Electronic
+					<strong>Shop</strong>
+				</a>
+				<span class="contact">Call us now: 1800 000 000</span>
+			</div>
+		</div>
+		<!--/ navbar-banner -->
+
+		<!-- navbar-inner -->
+		<div class="navbar-inner">
+			<div class="container">
+				<div class="nav-collapse collapse">
+
+					<ul class="nav">
+						<li class="active">
+							<a href="./index.html">Home</a>
+						</li>
+						<li class="">
+							<a href="#">About Us</a>
+						</li>
+						<li class="">
+							<a href="#">Shop Online</a>
+						</li>
+						<li class="">
+							<a href="#">Visit Us</a>
+						</li>
+					</ul>
+
+					<form class="form-search">
+						<div class="input-append">
+							<input name="searchQuery" id="searchQuery" type="text" placeholder="Search" />
+							<button class="btn" type="submit">Go</button>
+						</div>
+					</form>
+
+					<ul class="nav pull-right">
+						<li class="">
+							<a href="#">
+								<img class="shopping_cart" src="resources/img/shopping_cart.png" />Cart: 0</a>
+						</li>
+					</ul>
+
+				</div>
+				<!--/ nav-collapse collapse -->
+			</div>
+			<!--/ container -->
+		</div>
+		<!--/ navbar-inner -->
+
+	</div>
+	<!--/ navbar -->
+
+	@RenderBody()
+
+	<div class="footer text-center">
+		<p>&COPY; Company 2013</p>
+	</div>
+
+</body>
+</html>
