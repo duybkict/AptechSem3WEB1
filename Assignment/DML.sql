@@ -138,11 +138,11 @@ INSERT INTO Product(name, alias, old_price, price, number_in_stock, description)
 -- SELECT * FROM Product
 GO
 ----------------------------------------
--- TYPE 			--------------------
+-- CategoryParent	--------------------
 ----------------------------------------
-INSERT INTO [Type](name, alias) VALUES
+INSERT INTO CategoryParent(name, alias) VALUES
 ('Device', 'device'),
-('OS', 'operating_system'),
+('Operating System', 'operating_system'),
 ('Brand', 'brand'),
 ('User Memory', 'user_memory')
 -- SELECT * FROM [Type]
@@ -150,7 +150,7 @@ GO
 ----------------------------------------
 -- CATEGORY			--------------------
 ----------------------------------------
-INSERT INTO Category(name, alias, [type_id]) VALUES
+INSERT INTO Category(name, alias, categoryParent_id) VALUES
 ('Smart Phone', 'smart_phone', 1),
 ('Tablet', 'tablet', 1),
 ('Accessory', 'accessory', 1),
@@ -178,7 +178,7 @@ GO
 ----------------------------------------
 -- CATEGORY	DETAIL	--------------------
 ----------------------------------------
-INSERT INTO CategoryDetail(product_id, [type_id], category_id) VALUES
+INSERT INTO CategoryDetail(product_id, categoryParent_id, category_id) VALUES
 (1, 1, 2), (1, 2, 4), (1, 3, 8), (1, 4, 21),
 (2, 1, 2), (2, 2, 4), (2, 3, 8), (2, 4, 20),
 (3, 1, 2), (3, 2, 4), (3, 3, 8), (3, 4, 20),

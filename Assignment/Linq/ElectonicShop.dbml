@@ -1,0 +1,100 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="WEBAssignment" Class="ElectonicShopDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="WebSettings" ConnectionString="Data Source=DELL-PC;Initial Catalog=WEBAssignment;User ID=sa" SettingsObjectName="System.Configuration.ConfigurationManager.ConnectionStrings" SettingsPropertyName="WEBAssignmentConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.Category" Member="Categories">
+    <Type Name="Category">
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="name" Type="System.String" DbType="VarChar(256) NOT NULL" CanBeNull="false" />
+      <Column Name="alias" Type="System.String" DbType="VarChar(256) NOT NULL" CanBeNull="false" />
+      <Column Name="categoryParent_id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="publish" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="created" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="modified" Type="System.Data.Linq.Binary" DbType="rowversion NOT NULL" CanBeNull="false" IsVersion="true" />
+      <Association Name="Category_CategoryDetail" Member="CategoryDetails" ThisKey="id,categoryParent_id" OtherKey="category_id,categoryParent_id" Type="CategoryDetail" />
+      <Association Name="CategoryParent_Category" Member="CategoryParent" ThisKey="categoryParent_id" OtherKey="id" Type="CategoryParent" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.CategoryDetail" Member="CategoryDetails">
+    <Type Name="CategoryDetail">
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="product_id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="category_id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="categoryParent_id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="Category_CategoryDetail" Member="Category" ThisKey="category_id,categoryParent_id" OtherKey="id,categoryParent_id" Type="Category" IsForeignKey="true" />
+      <Association Name="Product_CategoryDetail" Member="Product" ThisKey="product_id" OtherKey="id" Type="Product" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.CategoryParent" Member="CategoryParents">
+    <Type Name="CategoryParent">
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="name" Type="System.String" DbType="VarChar(256) NOT NULL" CanBeNull="false" />
+      <Column Name="alias" Type="System.String" DbType="VarChar(256) NOT NULL" CanBeNull="false" />
+      <Column Name="publish" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="created" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="modified" Type="System.Data.Linq.Binary" DbType="rowversion NOT NULL" CanBeNull="false" IsVersion="true" />
+      <Association Name="CategoryParent_Category" Member="Categories" ThisKey="id" OtherKey="categoryParent_id" Type="Category" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Contact" Member="Contacts">
+    <Type Name="Contact">
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="email" Type="System.String" DbType="VarChar(64) NOT NULL" CanBeNull="false" />
+      <Column Name="fullname" Type="System.String" DbType="VarChar(64) NOT NULL" CanBeNull="false" />
+      <Column Name="telephone" Type="System.String" DbType="VarChar(16) NOT NULL" CanBeNull="false" />
+      <Column Name="address" Type="System.String" DbType="Text" CanBeNull="true" />
+      <Column Name="publish" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="created" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="modified" Type="System.Data.Linq.Binary" DbType="rowversion NOT NULL" CanBeNull="false" IsVersion="true" />
+      <Association Name="Contact_Order" Member="Orders" ThisKey="id" OtherKey="order_contact_id" Type="Order" />
+      <Association Name="Contact_Order1" Member="Orders1" ThisKey="id" OtherKey="receive_contact_id" Type="Order" />
+    </Type>
+  </Table>
+  <Table Name="dbo.[Order]" Member="Orders">
+    <Type Name="Order">
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="order_contact_id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="receive_contact_id" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="company" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="company_name" Type="System.String" DbType="VarChar(256)" CanBeNull="true" />
+      <Column Name="company_address" Type="System.String" DbType="Text" CanBeNull="true" />
+      <Column Name="company_taxcode" Type="System.String" DbType="VarChar(256)" CanBeNull="true" />
+      <Column Name="creditcard" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="creditcard_name" Type="System.String" DbType="VarChar(256)" CanBeNull="true" />
+      <Column Name="creditcard_no" Type="System.String" DbType="VarChar(32)" CanBeNull="true" />
+      <Column Name="creditcard_expired" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="creditcard_ccv" Type="System.String" DbType="VarChar(8)" CanBeNull="true" />
+      <Column Name="status" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="created" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="modified" Type="System.Data.Linq.Binary" DbType="rowversion NOT NULL" CanBeNull="false" IsVersion="true" />
+      <Association Name="Order_OrderDetail" Member="OrderDetails" ThisKey="id" OtherKey="order_id" Type="OrderDetail" />
+      <Association Name="Contact_Order" Member="Contact" ThisKey="order_contact_id" OtherKey="id" Type="Contact" IsForeignKey="true" />
+      <Association Name="Contact_Order1" Member="Contact1" ThisKey="receive_contact_id" OtherKey="id" Type="Contact" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.OrderDetail" Member="OrderDetails">
+    <Type Name="OrderDetail">
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="order_id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="product_id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="number" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="Order_OrderDetail" Member="Order" ThisKey="order_id" OtherKey="id" Type="Order" IsForeignKey="true" />
+      <Association Name="Product_OrderDetail" Member="Product" ThisKey="product_id" OtherKey="id" Type="Product" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Product" Member="Products">
+    <Type Name="Product">
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="name" Type="System.String" DbType="VarChar(256) NOT NULL" CanBeNull="false" />
+      <Column Name="alias" Type="System.String" DbType="VarChar(256) NOT NULL" CanBeNull="false" />
+      <Column Name="old_price" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="price" Type="System.Decimal" DbType="Money NOT NULL" CanBeNull="false" />
+      <Column Name="description" Type="System.String" DbType="Text" CanBeNull="true" />
+      <Column Name="number_in_stock" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="properties" Type="System.String" DbType="Text" CanBeNull="true" />
+      <Column Name="publish" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="created" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="modified" Type="System.Data.Linq.Binary" DbType="rowversion NOT NULL" CanBeNull="false" IsVersion="true" />
+      <Association Name="Product_CategoryDetail" Member="CategoryDetails" ThisKey="id" OtherKey="product_id" Type="CategoryDetail" />
+      <Association Name="Product_OrderDetail" Member="OrderDetails" ThisKey="id" OtherKey="product_id" Type="OrderDetail" />
+    </Type>
+  </Table>
+</Database>

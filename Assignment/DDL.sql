@@ -18,8 +18,8 @@ CREATE TABLE Product (
 	modified timestamp
 )
 GO
--- DROP TABLE Type
-CREATE TABLE [Type] (
+-- DROP TABLE CategoryParent
+CREATE TABLE CategoryParent (
 	id int PRIMARY KEY IDENTITY,
 	name varchar(256) NOT NULL,
 	alias varchar(256) NOT NULL UNIQUE,
@@ -33,11 +33,11 @@ CREATE TABLE Category (
 	id int PRIMARY KEY IDENTITY,
 	name varchar(256) NOT NULL,
 	alias varchar(256) NOT NULL UNIQUE,
-	[type_id] int NOT NULL REFERENCES Type(id),
+	categoryParent_id int NOT NULL REFERENCES CategoryParent(id),
 	publish bit DEFAULT 1,
 	created datetime NOT NULL DEFAULT GETDATE(),
 	modified timestamp,
-	CONSTRAINT unCategory UNIQUE (id, [type_id]),
+	CONSTRAINT unCategory UNIQUE (id, categoryParent_id),
 )
 GO 
 -- DROP TABLE CategoryDetail
@@ -45,9 +45,9 @@ CREATE TABLE CategoryDetail (
 	id int PRIMARY KEY IDENTITY,
 	product_id int NOT NULL REFERENCES Product(id),
 	category_id int NOT NULL,
-	[type_id] int NOT NULL,
-	CONSTRAINT unCategoryDetail UNIQUE (product_id, [type_id]),
-	CONSTRAINT fkCategoryDetail_Category FOREIGN KEY (category_id, [type_id]) REFERENCES Category(id, [type_id])
+	categoryParent_id int NOT NULL,
+	CONSTRAINT unCategoryDetail UNIQUE (product_id, categoryParent_id),
+	CONSTRAINT fkCategoryDetail_Category FOREIGN KEY (category_id, categoryParent_id) REFERENCES Category(id, categoryParent_id)
 )
 GO
 -- DROP TABLE Contact

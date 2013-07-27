@@ -1,0 +1,26 @@
+﻿@helper Test(int test) {
+	<div class="note"
+		style="border: 1px solid black; width: 90%; padding: 5px; margin-left: 15px;">
+		<p>
+			<strong>Note</strong>&nbsp;&nbsp; @test
+			<script type="text/javascript">
+				document.write(@test +1);
+			</script>
+		</p>
+	</div>
+}
+
+@helper CategoryListItem(int categoryId, String categoryName, String currentState) {
+	String currentBinState = Convert.ToString(Convert.ToInt32(currentState.ToString(), 16), 2).PadLeft(32, '0');
+	int currentCatState = currentBinState[currentBinState.Length - categoryId] - 48;
+
+	int newCatState = (currentCatState == 1) ? 0 : 1;
+	String newBinState = currentBinState.Substring(0, currentBinState.Length - categoryId) + newCatState + currentBinState.Substring(currentBinState.Length - categoryId + 1);
+	String newState = Convert.ToString(Convert.ToInt32(newBinState, 2), 16);
+	
+	if (currentCatState == 1) {
+		<li class="active"><a href="/Products/Index?filter=@newState">@categoryName</a></li>
+	} else {
+		<li><a href="/Products/Index?filter=@newState">@categoryName</a></li>
+	}
+}
