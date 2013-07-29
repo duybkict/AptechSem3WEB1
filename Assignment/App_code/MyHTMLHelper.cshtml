@@ -1,0 +1,21 @@
+﻿@using MvcAssignment.Linq
+
+@helper CategoryListItem(Category category, String currentState) {
+	String currentBinState = "";
+	try {
+		currentBinState = Convert.ToString(Convert.ToInt32(currentState.ToString(), 16), 2).PadLeft(64, '0');
+	} catch (Exception) {
+		currentBinState = "".PadLeft(64, '0');
+	}
+	int currentCatState = currentBinState[currentBinState.Length - category.id] - 48;
+
+	int newCatState = (currentCatState == 1) ? 0 : 1;
+	String newBinState = currentBinState.Substring(0, currentBinState.Length - category.id) + newCatState + currentBinState.Substring(currentBinState.Length - category.id + 1);
+	String newState = Convert.ToString(Convert.ToInt32(newBinState, 2), 16);
+	
+	if (currentCatState == 1) {
+		<li class="active"><a href="/Products/Index?filter=@newState">@category.name</a></li>
+	} else {
+		<li><a href="/Products/Index?filter=@newState">@category.name</a></li>
+	}
+}

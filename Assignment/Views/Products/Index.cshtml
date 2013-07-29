@@ -17,7 +17,7 @@
 					@foreach (var catParent in categoryTree.Keys) { 
 						<li class="nav-header">@catParent.name</li>
 						foreach (var category in categoryTree[catParent]) { 
-							@MyHelper.CategoryListItem(category.id, category.name, filter)
+							@MyHtmlHelper.CategoryListItem(category, filter)
 						}
 					}
 				</ul>
@@ -25,7 +25,10 @@
 			<!--/ .sidebar -->
 
 			<div class="span9">
-				<h1>Smartphones and Tablets</h1>
+				<h1>Smartphones &amp; Tablets</h1>
+				<span class="muted">iOS & Android & Windows Phone / 16GB & 32GB</span>
+
+				<br />
 				<br />
 
 				<!-- row-products -->
@@ -38,7 +41,7 @@
 							<span class="product-price">634.453 $</span>
 							<span class="product-discount-rate">-7 %</span>
 						</a>
-						<button class="btn-yellow btn-large">Add to Cart</button>
+						<button class="btn-red btn-large">Add to Cart</button>
 					</div>
 					<div class="span3 product-box small">
 						<a href="#">
@@ -48,7 +51,7 @@
 							<span class="product-price">704.953 $</span>
 							<span class="product-discount-rate">-2 %</span>
 						</a>
-						<button class="btn-yellow btn-large">Add to Cart</button>
+						<button class="btn-red btn-large">Add to Cart</button>
 					</div>
 					<div class="span3 product-box small">
 						<a href="#">
@@ -58,7 +61,7 @@
 							<span class="product-price">633.513 $</span>
 							<span class="product-discount-rate">-13 %</span>
 						</a>
-						<button class="btn-yellow btn-large">Add to Cart</button>
+						<button class="btn-red btn-large">Add to Cart</button>
 					</div>
 					<div class="span3 product-box small">
 						<a href="#">
@@ -68,7 +71,7 @@
 							<span class="product-price">225.553 $</span>
 							<span class="product-discount-rate">-9 %</span>
 						</a>
-						<button class="btn-yellow btn-large">Add to Cart</button>
+						<button class="btn-red btn-large">Add to Cart</button>
 					</div>
 				</div>
 				<!--/ row-products -->
@@ -83,7 +86,7 @@
 							<span class="product-price">634.453 $</span>
 							<span class="product-discount-rate">-7 %</span>
 						</a>
-						<button class="btn-yellow btn-large">Add to Cart</button>
+						<button class="btn-red btn-large">Add to Cart</button>
 					</div>
 					<div class="span3 product-box small">
 						<a href="#">
@@ -93,7 +96,7 @@
 							<span class="product-price">704.953 $</span>
 							<span class="product-discount-rate">-2 %</span>
 						</a>
-						<button class="btn-yellow btn-large">Add to Cart</button>
+						<button class="btn-red btn-large">Add to Cart</button>
 					</div>
 					<div class="span3 product-box small">
 						<a href="#">
@@ -103,7 +106,7 @@
 							<span class="product-price">633.513 $</span>
 							<span class="product-discount-rate">-13 %</span>
 						</a>
-						<button class="btn-yellow btn-large">Add to Cart</button>
+						<button class="btn-red btn-large">Add to Cart</button>
 					</div>
 					<div class="span3 product-box small">
 						<a href="#">
@@ -113,7 +116,7 @@
 							<span class="product-price">225.553 $</span>
 							<span class="product-discount-rate">-9 %</span>
 						</a>
-						<button class="btn-yellow btn-large">Add to Cart</button>
+						<button class="btn-red btn-large">Add to Cart</button>
 					</div>
 				</div>
 				<!--/ row-products -->

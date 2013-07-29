@@ -355,7 +355,7 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="App_code\MyHelper.cshtml" />
+    <Content Include="App_code\MyHtmlHelper.cshtml" />
     <None Include="Linq\ElectonicShop.dbml.layout">
       <DependentUpon>ElectonicShop.dbml</DependentUpon>
     </None>
