@@ -151,9 +151,9 @@ GO
 -- CATEGORY			--------------------
 ----------------------------------------
 INSERT INTO Category(name, alias, categoryParent_id) VALUES
-('Smart Phone', 'smart_phone', 1),
-('Tablet', 'tablet', 1),
-('Accessory', 'accessory', 1),
+('Smart Phones', 'smart_phones', 1),
+('Tablets', 'tablets', 1),
+('Accessories', 'accessories', 1),
 ('iOS', 'ios', 2),
 ('Android', 'android', 2),
 ('Windows Phone', 'windows_phone', 2),
