@@ -12,13 +12,13 @@ namespace MvcAssignment.Controllers
         //
         // GET: /Products/
 
-        public ActionResult Index() {
+		public ActionResult Index(String filter) {
 			ElectonicShopDataContext db = new ElectonicShopDataContext();
 			List<CategoryParent> catParents = (from t in db.CategoryParents
-							   select t).ToList();
+											   select t).ToList();
 			Dictionary<CategoryParent, List<Category>> categoryTree = new Dictionary<CategoryParent, List<Category>>();
 
-			foreach (CategoryParent catParent in catParents) { 
+			foreach (CategoryParent catParent in catParents) {
 				List<Category> cats = (from c in db.Categories
 									   where c.CategoryParent.Equals(catParent)
 									   select c).ToList();
@@ -26,9 +26,10 @@ namespace MvcAssignment.Controllers
 				categoryTree.Add(catParent, cats);
 			}
 
+			ViewData["filter"] = filter;
 			ViewData["categoryTree"] = categoryTree;
-            return View();
-        }
+			return View();
+		}
 
     }
 }

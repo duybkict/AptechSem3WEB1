@@ -2,7 +2,7 @@
 	ViewBag.Title = "Products";
 	Layout = "~/Views/Shared/_Layout.cshtml";
 
-	var filter = (Request["filter"] != null) ? Request["filter"] : "0";
+	var filter = (String)ViewData["filter"];
 	var categoryTree = (Dictionary<CategoryParent, List<Category>>)ViewData["categoryTree"];
 }
 
@@ -12,7 +12,7 @@
 
 		<div class="row-fluid">
 
-			<div class="span3 sidebar">		
+			<div class="span3 sidebar">
 				<ul class="nav nav-list">
 					@foreach (var catParent in categoryTree.Keys) { 
 						<li class="nav-header">@catParent.name</li>
