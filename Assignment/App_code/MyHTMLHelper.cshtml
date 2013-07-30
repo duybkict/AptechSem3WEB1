@@ -41,56 +41,19 @@
 		foreach (var category in categoryTree[catParent]) {
 			if (category.CategoryParent.alias.Equals(categoryParentAlias) 
 				&& currentBinState[currentBinState.Length - index] == '1') {
-				title += " " + category.name + " &";
+				title += " " + category.name + ",";
 			}
 			index++;
 		}
 	}
 	
 	if (title.Equals("")) {
-		title = "Products";
+		title = "All Products";
 	} else {
 		title = title.Remove(title.Length - 1).Trim();
-	}
-	
-	<h1>@title</h1>	
-}
-
-
-@**
- * Generate a html h1 element for products page title with an array of category parents.
- *@
-@helper ProductsPageTitle(String[] categoryParentAliases, Dictionary<CategoryParent, List<Category>> categoryTree, String currentState) {
-	String currentBinState = "";
-	try {
-		currentBinState = Convert.ToString(Convert.ToInt32(currentState.ToString(), 16), 2).PadLeft(64, '0');
-	} catch (Exception) {
-		currentBinState = "".PadLeft(64, '0');
-	}
-	
-	String title = "";	
-	int index = 1;
-	
-	foreach (var catParent in categoryTree.Keys) {
-		foreach (var category in categoryTree[catParent]) {
-			bool valid = false;
-			for (int i = 0; i < categoryParentAliases.Length; i++) {
-				if (category.CategoryParent.alias.Equals(categoryParentAliases[i])) {
-					valid = true;
-				}
-			}
-			
-			if (valid && currentBinState[currentBinState.Length - index] == '1') {
-				title += " " + category.name + " &";
-			}
-			index++;
-		}
-	}
-	
-	if (title.Equals("")) {
-		title = "Products";
-	} else {
-		title = title.Remove(title.Length - 1).Trim();
+		if (title.Contains(',')) {
+			title = title.Substring(0, title.LastIndexOf(',')) + " & " + title.Substring(title.LastIndexOf(',') + 1);		
+		}		
 	}
 	
 	<h1>@title</h1>	
