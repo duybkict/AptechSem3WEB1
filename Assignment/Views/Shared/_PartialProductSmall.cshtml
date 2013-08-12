@@ -1,0 +1,23 @@
+﻿@model Product
+
+<div class="span3 product-box small">
+    <a href="#">
+        <img src="../Resources/products/apple-4397-74964-1-catalog.jpg" />
+        @Model.name
+
+        @if (Model.old_price > 0 && Model.old_price > Model.price) {
+            <span class="old-product-price">@Model.old_price $</span>
+        } else {
+            <br />
+        }
+        
+        <span class="product-price">@Model.price $</span>
+
+        @{var saleRate = Convert.ToInt32((Model.old_price - Model.price) / Model.old_price * 100);}
+
+        @if (saleRate > 0) {
+            <span class="product-discount-rate">-@saleRate %</span>
+        }        
+    </a>
+    <button class="btn-red btn-large">Add to Cart</button>
+</div>

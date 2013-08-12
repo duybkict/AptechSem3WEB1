@@ -1,130 +1,96 @@
 ﻿@{
-	ViewBag.Title = "Products";
-	Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.Title = "Products";
+    Layout = "~/Views/Shared/_Layout.cshtml";
 
-	var filter = (String)ViewData["filter"];
-	var categoryTree = (Dictionary<CategoryParent, List<Category>>)ViewData["categoryTree"];
+    var filter = (String)ViewData["filter"];
+    var categoryTree = (Dictionary<CategoryParent, List<Category>>)ViewData["categoryTree"];
+    var products = (List<Product>)ViewData["products"];
+    var page = Convert.ToInt32(ViewData["page"]);
+    var countPages = Convert.ToInt32(ViewData["countPages"]);
 }
 
 <!-- .content -->
 <div class="content">
-	<div class="container">
+    <div class="container">
 
-		<div class="row-fluid">
+        <div class="row-fluid">
 
-			<div class="span3 sidebar">
-				<ul class="nav nav-list">
-					@foreach (var catParent in categoryTree.Keys) { 
-						<li class="nav-header">@catParent.name</li>
-						foreach (var category in categoryTree[catParent]) { 
-							@MyHTMLHelper.CategoryListItem(category, filter)
-						}
-					}
-				</ul>
-			</div>
-			<!--/ .sidebar -->
+            <div class="span3 sidebar">
+                <ul class="nav nav-list">
+                    @foreach (var catParent in categoryTree.Keys) { 
+                        <li class="nav-header">@catParent.name</li>
+                        foreach (var category in categoryTree[catParent]) { 
+                        @MyHTMLHelper.CategoryListItem(category, filter)
+                        }
+                    }
+                </ul>
+            </div>
+            <!--/ .sidebar -->
 
-			<div class="span9">
-				@MyHTMLHelper.ProductsPageTitle("device", categoryTree, filter)
+            <div class="span9">
+                @MyHTMLHelper.ProductsPageTitle("device", categoryTree, filter)
 
-				<br />
-				<br />
+                <br />
+                <br />
 
-				<!-- row-products -->
-				<div class="row-fluid row-products">
-					<div class="span3 product-box small">
-						<a href="#">
-							<img src="../Resources/products/apple-4397-74964-1-catalog.jpg" />
-							Apple iPad 4 (with Retina display) - 32GB / Wifi / White
-							<span class="old-product-price">681.5 $</span>
-							<span class="product-price">634.453 $</span>
-							<span class="product-discount-rate">-7 %</span>
-						</a>
-						<button class="btn-red btn-large">Add to Cart</button>
-					</div>
-					<div class="span3 product-box small">
-						<a href="#">
-							<img src="../Resources/products/samsung-3642-11236-1-catalog.jpg" />
-							Samsung Galaxy S4 (i9500) - Full HD 4.99'' / 13MP / 16GB / White
-							<span class="old-product-price">715.763 $</span>
-							<span class="product-price">704.953 $</span>
-							<span class="product-discount-rate">-2 %</span>
-						</a>
-						<button class="btn-red btn-large">Add to Cart</button>
-					</div>
-					<div class="span3 product-box small">
-						<a href="#">
-							<img src="../Resources/products/blackberry-2662-56776-1-catalog.jpg" />
-							BlackBerry Z10 - LCD 4.2'' / 8MP / 16GB / Black
-							<span class="old-product-price">728.5 $</span>
-							<span class="product-price">633.513 $</span>
-							<span class="product-discount-rate">-13 %</span>
-						</a>
-						<button class="btn-red btn-large">Add to Cart</button>
-					</div>
-					<div class="span3 product-box small">
-						<a href="#">
-							<img src="../Resources/products/nokia-7194-07184-1-catalog.jpg" />
-							Nokia Lumia 620 - TFT 3.8'' / 5MP / 8GB / Black
-							<span class="old-product-price">246.7 $</span>
-							<span class="product-price">225.553 $</span>
-							<span class="product-discount-rate">-9 %</span>
-						</a>
-						<button class="btn-red btn-large">Add to Cart</button>
-					</div>
-				</div>
-				<!--/ row-products -->
+                @for (int i = 0; i < products.Count; ) {
+                    <div class="row-fluid row-products">
+                        @for (int j = 0; j < 4; j++, i++) { 
+                            @Html.Partial("_PartialProductSmall", @products.ElementAt(i))
+                        }
+                    </div>
+                    <!--/ row-products -->
+                }
 
-				<!-- row-products -->
-				<div class="row-fluid row-products">
-					<div class="span3 product-box small">
-						<a href="#">
-							<img src="../Resources/products/apple-4397-74964-1-catalog.jpg" />
-							Apple iPad 4 (with Retina display) - 32GB / Wifi / White
-							<span class="old-product-price">681.5 $</span>
-							<span class="product-price">634.453 $</span>
-							<span class="product-discount-rate">-7 %</span>
-						</a>
-						<button class="btn-red btn-large">Add to Cart</button>
-					</div>
-					<div class="span3 product-box small">
-						<a href="#">
-							<img src="../Resources/products/samsung-3642-11236-1-catalog.jpg" />
-							Samsung Galaxy S4 (i9500) - Full HD 4.99'' / 13MP / 16GB / White
-							<span class="old-product-price">715.763 $</span>
-							<span class="product-price">704.953 $</span>
-							<span class="product-discount-rate">-2 %</span>
-						</a>
-						<button class="btn-red btn-large">Add to Cart</button>
-					</div>
-					<div class="span3 product-box small">
-						<a href="#">
-							<img src="../Resources/products/blackberry-2662-56776-1-catalog.jpg" />
-							BlackBerry Z10 - LCD 4.2'' / 8MP / 16GB / Black
-							<span class="old-product-price">728.5 $</span>
-							<span class="product-price">633.513 $</span>
-							<span class="product-discount-rate">-13 %</span>
-						</a>
-						<button class="btn-red btn-large">Add to Cart</button>
-					</div>
-					<div class="span3 product-box small">
-						<a href="#">
-							<img src="../Resources/products/nokia-7194-07184-1-catalog.jpg" />
-							Nokia Lumia 620 - TFT 3.8'' / 5MP / 8GB / Black
-							<span class="old-product-price">246.7 $</span>
-							<span class="product-price">225.553 $</span>
-							<span class="product-discount-rate">-9 %</span>
-						</a>
-						<button class="btn-red btn-large">Add to Cart</button>
-					</div>
-				</div>
-				<!--/ row-products -->
-			</div>
+                <div class="pagination pagination-centered">
+                    <ul>
+                        @if (page <= 1) {
+                            <li class="disabled"><a href="#">&lt;&lt;</a></li>
+                        } else {
+                            <li>@Html.ActionLink("<<", "Index", "Products", null, null)</li>
+                        }                        
 
-		</div>
-		<!--/ .row-fluid -->
+                        @if (page <= 1) {
+                            <li class="disabled"><a href="#">&lt;</a></li>
+                        } else {
+                            <li>@Html.ActionLink("<", "Index", "Products", new { filter = filter, page = page - 1}, null)</li>
+                        }
 
-	</div>
-	<!--/ .container -->
+                        @{var index = (page - 2 < countPages - 4) ? page - 2 : countPages - 4;}
+
+                        @for (int j = 0; j < 5; index++) {
+                            if (index >= 1 && index <= countPages) {
+                                if (index == page) { 
+                                    @:<li class="disabled">
+                                } else {
+                                    @:<li>
+                                }
+                                @Html.ActionLink(index.ToString(), "Index", "Products", new { filter = filter, page = index }, null);
+                                @:</li>
+                                j++;
+                            }                            
+                        }
+
+                        @if (page == countPages) {
+                            <li class="disabled"><a href="#">&gt;</a></li>
+                        } else {
+                            <li>@Html.ActionLink(">", "Index", "Products", new { filter = filter, page = page + 1}, null)</li>
+                        }
+
+                        @if (page >= countPages) {
+                            <li class="disabled"><a href="#">&gt;&gt;</a></li>
+                        } else {
+                            <li>@Html.ActionLink(">>", "Index", "Products", new { filter = filter, page = countPages}, null)</li>
+                        } 
+                    </ul>
+                </div>
+
+            </div>
+
+        </div>
+        <!--/ .row-fluid -->
+
+    </div>
+    <!--/ .container -->
 </div>
 <!--/ .content -->
