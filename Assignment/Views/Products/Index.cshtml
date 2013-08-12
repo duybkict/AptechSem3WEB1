@@ -17,7 +17,7 @@
 					@foreach (var catParent in categoryTree.Keys) { 
 						<li class="nav-header">@catParent.name</li>
 						foreach (var category in categoryTree[catParent]) { 
-							@MyHtmlHelper.CategoryListItem(category, filter)
+							@MyHTMLHelper.CategoryListItem(category, filter)
 						}
 					}
 				</ul>
@@ -25,7 +25,7 @@
 			<!--/ .sidebar -->
 
 			<div class="span9">
-				@MyHtmlHelper.ProductsPageTitle("device", categoryTree, filter)
+				@MyHTMLHelper.ProductsPageTitle("device", categoryTree, filter)
 
 				<br />
 				<br />
