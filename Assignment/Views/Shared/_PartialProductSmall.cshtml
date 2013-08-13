@@ -19,5 +19,11 @@
             <span class="product-discount-rate">-@saleRate %</span>
         }        
     </a>
-    <button class="btn-red btn-large">Add to Cart</button>
+    <button class="btn-red btn-large btn-add-to-cart">Add to Cart</button>
+
+	<script type="text/javascript">
+		$('.btn-add-to-cart').click(function () {
+			$('#modalShoppingCart').modal('show');
+		});		
+	</script>
 </div>

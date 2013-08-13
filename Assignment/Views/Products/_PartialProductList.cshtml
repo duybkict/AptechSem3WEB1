@@ -1,0 +1,32 @@
+﻿@model List<Product>
+
+@if (Model.Count > 0) {
+	for (int i = 0; i < Model.Count; ) {
+	<div class="row-fluid row-products">
+		@for (int j = 0; j < 4 && i < Model.Count; j++, i++) { 
+			@Html.Partial("_PartialProduct", Model.ElementAt(i))
+  }
+	</div>
+	<!--/ row-products -->
+	}
+} else {
+	<span>No products available!</span>
+}
+
+<script type="text/javascript">
+	$('.btn-add-to-cart').click(function () {
+		//$('#modalShoppingCart > .modal-body').load('Products/AddToCart/' + $(this).attr('data-product-id'));
+		$.ajax({
+			url: '/Products/AddToCart/' + $(this).attr('data-product-id'),
+			success: function (result) {
+				//alert(result);
+				$('#modalShoppingCart > .modal-body').html(result);
+			},
+			error: function (jqXHR, textStatus, errorThrown) {
+				alert("An error has occured: " + errorThrown);
+			}
+		});
+		
+		$('#modalShoppingCart').modal('show');
+	});
+</script>

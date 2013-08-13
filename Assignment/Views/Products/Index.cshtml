@@ -30,25 +30,9 @@
 			<div class="span9">
 				@MyHtmlHelper.ProductsPageTitle("device", categoryTree, filter)
 
-                <br />
-				<br />
-
-				@if (products.Count > 0) { 
-					for (int i = 0; i < products.Count; ) {
-						<div class="row-fluid row-products">
-						@for (int j = 0; j < 4 && i < products.Count; j++, i++) { 
-							@Html.Partial("_PartialProductSmall", @products.ElementAt(i))
-						}
-						</div>
-						<!--/ row-products -->
-					}
-				} else {
-					<span>No products available!</span>
-				}
-				
+				@Html.Partial("_PartialProductList", products)
 
 				@MyHtmlHelper.Paginations(page, countPages, filter)
-
 			</div>
 
 		</div>

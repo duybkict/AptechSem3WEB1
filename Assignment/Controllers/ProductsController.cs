@@ -83,5 +83,15 @@ namespace MvcAssignment.Controllers
 			return View();
 		}
 
+		public ActionResult AddToCart(int id) {
+			// Initialize datacontext
+			ElectonicShopDataContext db = new ElectonicShopDataContext();
+			var product = (from p in db.Products
+						   where p.id == id
+						   select p).FirstOrDefault();
+
+			return PartialView("_PartialShoppingCart", product);
+		}
+
 	}
 }

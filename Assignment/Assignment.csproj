@@ -360,6 +360,9 @@
       <DependentUpon>ElectonicShop.dbml</DependentUpon>
     </None>
     <Content Include="Views\Shared\_PartialProductSmall.cshtml" />
+    <Content Include="Views\Products\_PartialProductList.cshtml" />
+    <Content Include="Views\Products\_PartialProduct.cshtml" />
+    <Content Include="Views\Shared\_PartialShoppingCart.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

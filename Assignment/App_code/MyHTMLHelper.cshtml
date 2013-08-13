@@ -63,13 +63,13 @@
 	<div class="pagination pagination-centered">
 		<ul>
 			@if (page <= 1) {
-				<li class="disabled"><a href="#">&lt;&lt;</a></li>
+				<li class="disabled"><a>&lt;&lt;</a></li>
             } else {
 				<li><a href="/Products/Index?filter=@currentState">&lt;&lt;</a></li>
             }
 
 			@if (page <= 1) {
-				<li class="disabled"><a href="#">&lt;</a></li>
+				<li class="disabled"><a>&lt;</a></li>
             } else {
 				<li><a href="/Products/Index?filter=@currentState&page=@(page - 1)">&lt;</a></li>
             }
@@ -91,15 +91,15 @@
 
 
 			@if (page == countPages) {
-				<li class="disabled"><a href="#">&gt;</a></li>
+				<li class="disabled"><a>&gt;</a></li>
             } else {
 				<li><a href="/Products/Index?filter=@currentState&page=@(page + 1)">&gt;</a></li>
             }
 
 			@if (page >= countPages) {
-				<li class="disabled"><a href="#">&gt;&gt;</a></li>
+				<li class="disabled"><a>&gt;&gt;</a></li>
             } else {
-				<li class="disabled"><a href="/Products/Index?filter=@currentState&page=@countPages">&gt;&gt;</a></li>
+				<li><a href="/Products/Index?filter=@currentState&page=@countPages">&gt;&gt;</a></li>
             }
 		</ul>
 	</div>        
