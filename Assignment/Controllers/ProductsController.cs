@@ -58,10 +58,10 @@ namespace MvcAssignment.Controllers
 			// Get list of products
 			int defaultLimit = 16; // Configurable
 
-			List<Product> products = (from p in db.Products									  
+			List<Product> products = (from p in db.Products
 									  select p).ToList();
 			if (filterCategories.Count > 0) {
-				foreach (List<int> filterC in filterCategories) { 
+				foreach (List<int> filterC in filterCategories) {
 					products = (from p in products
 								join cd in db.CategoryDetails on p equals cd.Product
 								where filterC.Contains(cd.category_id)

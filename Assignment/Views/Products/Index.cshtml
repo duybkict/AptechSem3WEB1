@@ -33,14 +33,19 @@
                 <br />
 				<br />
 
-				@for (int i = 0; i < products.Count; ) {
-					<div class="row-fluid row-products">
+				@if (products.Count > 0) { 
+					for (int i = 0; i < products.Count; ) {
+						<div class="row-fluid row-products">
 						@for (int j = 0; j < 4 && i < products.Count; j++, i++) { 
 							@Html.Partial("_PartialProductSmall", @products.ElementAt(i))
 						}
-					</div>
-					<!--/ row-products -->
+						</div>
+						<!--/ row-products -->
+					}
+				} else {
+					<span>No products available!</span>
 				}
+				
 
 				@MyHtmlHelper.Paginations(page, countPages, filter)
 
