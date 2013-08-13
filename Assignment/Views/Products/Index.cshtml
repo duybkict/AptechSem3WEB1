@@ -58,7 +58,7 @@
 
                         @{var index = (page - 2 < countPages - 4) ? page - 2 : countPages - 4;}
 
-                        @for (int j = 0; j < 5; index++) {
+                        @for (int j = 0; j < 5 || index > countPages; index++) {
                             if (index >= 1 && index <= countPages) {
                                 if (index == page) { 
                                     @:<li class="disabled">

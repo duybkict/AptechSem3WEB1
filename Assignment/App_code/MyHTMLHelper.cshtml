@@ -10,7 +10,7 @@
 	} catch (Exception) {
 		currentBinState = "".PadLeft(64, '0');
 	}
-	int currentCatState = currentBinState[currentBinState.Length - category.id] - 48;
+	int currentCatState = currentBinState[currentBinState.Length - category.id] - 48; // TODO: category.id is not exact
 
 	int newCatState = (currentCatState == 1) ? 0 : 1;
 	String newBinState = currentBinState.Substring(0, currentBinState.Length - category.id) + newCatState + currentBinState.Substring(currentBinState.Length - category.id + 1);
