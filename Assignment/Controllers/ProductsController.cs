@@ -37,29 +37,36 @@ namespace MvcAssignment.Controllers
 				currentBinState = "".PadLeft(64, '0');
 			}
 
-			List<int> filterCategories = new List<int>();
+			List<List<int>> filterCategories = new List<List<int>>();
 
 			int index = 1;
 			foreach (KeyValuePair<CategoryParent, List<Category>> cp in categoryTree) {
+				List<int> filterC = new List<int>();
+
 				foreach (Category c in cp.Value) {
 					if (currentBinState[currentBinState.Length - index] - 48 == 1) {
-						filterCategories.Add(c.id);
+						filterC.Add(c.id);
 					}
 					index++;
+				}
+
+				if (filterC.Count > 0) {
+					filterCategories.Add(filterC);
 				}
 			}
 
 			// Get list of products
 			int defaultLimit = 16; // Configurable
 
-			List<Product> products = (from p in db.Products
+			List<Product> products = (from p in db.Products									  
 									  select p).ToList();
 			if (filterCategories.Count > 0) {
-				var a = (from p in db.Products
-						 join cd in db.CategoryDetails on p equals cd.Product
-						 where filterCategories.Contains(cd.category_id)
-						 select p);
-				products = a.ToList();
+				foreach (List<int> filterC in filterCategories) { 
+					products = (from p in products
+								join cd in db.CategoryDetails on p equals cd.Product
+								where filterC.Contains(cd.category_id)
+								select p).ToList();
+				}
 			}
 
 			int countPages = products.Count() / defaultLimit + 1;

@@ -1,96 +1,55 @@
 ﻿@{
-    ViewBag.Title = "Products";
-    Layout = "~/Views/Shared/_Layout.cshtml";
+	ViewBag.Title = "Products";
+	Layout = "~/Views/Shared/_Layout.cshtml";	
 
-    var filter = (String)ViewData["filter"];
-    var categoryTree = (Dictionary<CategoryParent, List<Category>>)ViewData["categoryTree"];
-    var products = (List<Product>)ViewData["products"];
-    var page = Convert.ToInt32(ViewData["page"]);
-    var countPages = Convert.ToInt32(ViewData["countPages"]);
+	var filter = (String)ViewData["filter"];
+	var categoryTree = (Dictionary<CategoryParent, List<Category>>)ViewData["categoryTree"];
+	var products = (List<Product>)ViewData["products"];
+	var page = Convert.ToInt32(ViewData["page"]);
+	var countPages = Convert.ToInt32(ViewData["countPages"]);
 }
 
 <!-- .content -->
 <div class="content">
-    <div class="container">
+	<div class="container">
 
-        <div class="row-fluid">
+		<div class="row-fluid">
 
-            <div class="span3 sidebar">
-                <ul class="nav nav-list">
-                    @foreach (var catParent in categoryTree.Keys) { 
-                        <li class="nav-header">@catParent.name</li>
-                        foreach (var category in categoryTree[catParent]) { 
-                        @MyHTMLHelper.CategoryListItem(category, filter)
-                        }
-                    }
-                </ul>
-            </div>
-            <!--/ .sidebar -->
+			<div class="span3 sidebar">
+				<ul class="nav nav-list">
+					@foreach (var catParent in categoryTree.Keys) { 
+						<li class="nav-header">@catParent.name</li>
+						foreach (var category in categoryTree[catParent]) {
+							@MyHtmlHelper.CategoryListItem(category, filter);
+						}
+					}
+				</ul>
+			</div>
+			<!--/ .sidebar -->
 
-            <div class="span9">
-                @MyHTMLHelper.ProductsPageTitle("device", categoryTree, filter)
+			<div class="span9">
+				@MyHtmlHelper.ProductsPageTitle("device", categoryTree, filter)
 
                 <br />
-                <br />
+				<br />
 
-                @for (int i = 0; i < products.Count; ) {
-                    <div class="row-fluid row-products">
-                        @for (int j = 0; j < 4; j++, i++) { 
-                            @Html.Partial("_PartialProductSmall", @products.ElementAt(i))
-                        }
-                    </div>
-                    <!--/ row-products -->
-                }
+				@for (int i = 0; i < products.Count; ) {
+					<div class="row-fluid row-products">
+						@for (int j = 0; j < 4 && i < products.Count; j++, i++) { 
+							@Html.Partial("_PartialProductSmall", @products.ElementAt(i))
+						}
+					</div>
+					<!--/ row-products -->
+				}
 
-                <div class="pagination pagination-centered">
-                    <ul>
-                        @if (page <= 1) {
-                            <li class="disabled"><a href="#">&lt;&lt;</a></li>
-                        } else {
-                            <li>@Html.ActionLink("<<", "Index", "Products", null, null)</li>
-                        }                        
+				@MyHtmlHelper.Paginations(page, countPages, filter)
 
-                        @if (page <= 1) {
-                            <li class="disabled"><a href="#">&lt;</a></li>
-                        } else {
-                            <li>@Html.ActionLink("<", "Index", "Products", new { filter = filter, page = page - 1}, null)</li>
-                        }
+			</div>
 
-                        @{var index = (page - 2 < countPages - 4) ? page - 2 : countPages - 4;}
+		</div>
+		<!--/ .row-fluid -->
 
-                        @for (int j = 0; j < 5 || index > countPages; index++) {
-                            if (index >= 1 && index <= countPages) {
-                                if (index == page) { 
-                                    @:<li class="disabled">
-                                } else {
-                                    @:<li>
-                                }
-                                @Html.ActionLink(index.ToString(), "Index", "Products", new { filter = filter, page = index }, null);
-                                @:</li>
-                                j++;
-                            }                            
-                        }
-
-                        @if (page == countPages) {
-                            <li class="disabled"><a href="#">&gt;</a></li>
-                        } else {
-                            <li>@Html.ActionLink(">", "Index", "Products", new { filter = filter, page = page + 1}, null)</li>
-                        }
-
-                        @if (page >= countPages) {
-                            <li class="disabled"><a href="#">&gt;&gt;</a></li>
-                        } else {
-                            <li>@Html.ActionLink(">>", "Index", "Products", new { filter = filter, page = countPages}, null)</li>
-                        } 
-                    </ul>
-                </div>
-
-            </div>
-
-        </div>
-        <!--/ .row-fluid -->
-
-    </div>
-    <!--/ .container -->
+	</div>
+	<!--/ .container -->
 </div>
 <!--/ .content -->
