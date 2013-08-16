@@ -2,7 +2,7 @@
 
 <div class="span3 product-box small">
 	<a href="#">
-		<img src="../Resources/products/apple-4397-74964-1-catalog.jpg" />
+		<img src="~/Resources/products/@(Model.alias).jpg" />
 		@Model.name
 
 		@if (Model.old_price > 0 && Model.old_price > Model.price) {
@@ -19,6 +19,6 @@
 			<span class="product-discount-rate">-@saleRate %</span>
         }
 	</a>
-	<button class="btn-red btn-large btn-add-to-cart" data-product-id="@Model.id">Add to Cart</button>
+	<button class="btn-red btn-large btn-shopping-cart" data-action="AddToCart" data-product-id="@Model.id">Add to Cart</button>
 
 </div>

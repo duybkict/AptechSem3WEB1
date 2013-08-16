@@ -74,15 +74,62 @@ namespace MvcAssignment.Controllers
 			page = (page > countPages) ? countPages : page;
 			products = products.Skip((page - 1) * defaultLimit).Take(defaultLimit).ToList();
 
+			// Shopping cart
+			List<Product> shoppingCart;
+			if (Session["shoppingCart"] == null) {
+				shoppingCart = new List<Product>();
+			} else {
+				shoppingCart = (List<Product>)Session["shoppingCart"];
+			}
+
 			ViewData["filter"] = filter;
 			ViewData["categoryTree"] = categoryTree;
 			ViewData["products"] = products;
 
 			ViewData["page"] = page;
 			ViewData["countPages"] = countPages;
+
+			ViewData["shoppingCartCount"] = shoppingCart.Count;
 			return View();
 		}
 
+		/**
+		 * Count shopping cart items.
+		 * @return		Number of items in shopping cart.
+		 */
+		public ActionResult CountCart() {
+			// Load shopping cart from session
+			List<Product> shoppingCart;
+			if (Session["shoppingCart"] == null) {
+				shoppingCart = new List<Product>();
+			} else {
+				shoppingCart = (List<Product>)Session["shoppingCart"];
+			}
+
+			return Json(shoppingCart.Count, JsonRequestBehavior.AllowGet);
+		}
+
+		/**
+		 * Show shopping cart.
+		 * @return		Partial HTML view of the shopping cart.
+		 */
+		public ActionResult ShowCart() {
+			// Load shopping cart from session
+			List<Product> shoppingCart;
+			if (Session["shoppingCart"] == null) {
+				shoppingCart = new List<Product>();
+			} else {
+				shoppingCart = (List<Product>)Session["shoppingCart"];
+			}
+
+			return PartialView("_PartialShoppingCart", shoppingCart);
+		}
+
+		/**
+		 * Add a product to shopping cart.
+		 * @param int	Product id.
+		 * @return		Partial HTML view of the shopping cart.
+		 */
 		public ActionResult AddToCart(int id) {
 			// Initialize datacontext
 			ElectonicShopDataContext db = new ElectonicShopDataContext();
@@ -90,7 +137,21 @@ namespace MvcAssignment.Controllers
 						   where p.id == id
 						   select p).FirstOrDefault();
 
-			return PartialView("_PartialShoppingCart", product);
+			// Load shopping cart from session
+			List<Product> shoppingCart;
+			if (Session["shoppingCart"] == null) {
+				shoppingCart = new List<Product>();
+			} else {
+				shoppingCart = (List<Product>)Session["shoppingCart"];
+			}
+
+			// Add new product to shopping cart
+			shoppingCart.Add(product);
+
+			// Save shopping cart
+			Session["shoppingCart"] = shoppingCart;
+
+			return PartialView("_PartialShoppingCart", shoppingCart);
 		}
 
 	}

@@ -1,3 +1,5 @@
-﻿@model Product
+﻿@model List<Product>
 
-<h1>@Model.name</h1>
+@foreach (Product product in @Model) { 
+	<h1>@product.name</h1>
+}

@@ -345,3 +345,19 @@ h1 + .muted {
 	background: #000000;
 	font: 13px/1.3em "Open Sans","sans-serif";
 }
+
+
+#modalShoppingCart {
+	width: 800px;
+	margin-left: -400px;
+}
+
+#modalShoppingCart .modal-body {
+	min-height: 120px;
+	max-height: 360px;
+}
+
+	#modalShoppingCart .modal-footer button:first-child {
+		margin-top: 8px;
+	}
+
