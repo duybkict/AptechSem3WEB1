@@ -104,7 +104,6 @@
 						},
 						error: function (jqXHR, textStatus, errorThrown) {
 							alert("An error has occured: " + errorThrown);
-							$('#modalShoppingCart').modal('hide');
 						}
 					});
 				}
@@ -131,7 +130,6 @@
 						},
 						error: function (jqXHR, textStatus, errorThrown) {
 							alert("An error has occured: " + errorThrown);
-							$('#modalShoppingCart').modal('hide');
 						}
 					});
 				}
@@ -143,6 +141,32 @@
 		function removeFromCart(id) {
 			$.ajax({
 				url: '/Products/RemoveFromCart/' + id,
+				success: function (result) {
+					$('#modalShoppingCart').html(result);
+				},
+				error: function (jqXHR, textStatus, errorThrown) {
+					alert("An error has occured: " + errorThrown);
+				},
+				complete: function () {
+					$.ajax({
+						url: '/Products/CountCart',
+						success: function (result) {
+							$('#shoppingCartCount').html(result);
+							$('#modalShoppingCartHeader').html('Shopping Cart (' + result + ')');
+						},
+						error: function (jqXHR, textStatus, errorThrown) {
+							alert("An error has occured: " + errorThrown);
+						}
+					});
+				}
+			});
+
+			$('#modalShoppingCart').modal('show');
+		}
+
+		function editCart(id, quantity) {
+			$.ajax({
+				url: '/Products/EditCart/' + id + '?quantity=' + quantity,
 				success: function (result) {
 					$('#modalShoppingCart').html(result);
 				},

@@ -200,5 +200,33 @@ namespace MvcAssignment.Controllers
 			return PartialView("_PartialShoppingCart", shoppingCart);
 		}
 
+		/**
+		 * Edit quantity of a product to shopping cart.
+		 * @param int	Product id.
+		 * @param int	Product quantity.
+		 * @return		Partial HTML view of the shopping cart.
+		 */
+		public ActionResult EditCart(int id, int quantity) {
+
+			// Load shopping cart from session
+			List<ShoppingCartItem> shoppingCart;
+			if (Session["shoppingCart"] == null) {
+				shoppingCart = new List<ShoppingCartItem>();
+			} else {
+				shoppingCart = (List<ShoppingCartItem>)Session["shoppingCart"];
+			}
+
+			foreach (ShoppingCartItem ci in shoppingCart.ToList()) {
+				if (ci.id == id) {
+					ci.quantity = quantity;
+				}
+			}
+
+			// Save shopping cart
+			Session["shoppingCart"] = shoppingCart;
+
+			return PartialView("_PartialShoppingCart", shoppingCart);
+		}
+
 	}
 }

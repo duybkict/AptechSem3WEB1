@@ -354,15 +354,20 @@ h1 + .muted {
 
 #modalShoppingCart .modal-body {
 	min-height: 120px;
-	max-height: 247px;
+	max-height: 241px;
+	padding: 0px 15px;
 }
 
 	#modalShoppingCart .modal-footer button:first-child {
 		margin-top: 8px;
 	}
 
+	#modalShoppingCart .modal-body table {
+		margin-bottom: 0px;
+	}
+
 	#modalShoppingCart .modal-body table tbody tr {
-		height: 120px;
+		height: 120px;		
 	}
 
 	#modalShoppingCart .modal-body img {
