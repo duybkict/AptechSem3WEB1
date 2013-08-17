@@ -1,4 +1,5 @@
 ﻿using MvcAssignment.Linq;
+using MvcAssignment.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -75,11 +76,15 @@ namespace MvcAssignment.Controllers
 			products = products.Skip((page - 1) * defaultLimit).Take(defaultLimit).ToList();
 
 			// Shopping cart
-			List<Product> shoppingCart;
+			List<ShoppingCartItem> shoppingCart;
 			if (Session["shoppingCart"] == null) {
-				shoppingCart = new List<Product>();
+				shoppingCart = new List<ShoppingCartItem>();
 			} else {
-				shoppingCart = (List<Product>)Session["shoppingCart"];
+				shoppingCart = (List<ShoppingCartItem>)Session["shoppingCart"];
+			}
+			int countCart = 0;
+			foreach (ShoppingCartItem ci in shoppingCart) {
+				countCart += ci.quantity;
 			}
 
 			ViewData["filter"] = filter;
@@ -89,7 +94,7 @@ namespace MvcAssignment.Controllers
 			ViewData["page"] = page;
 			ViewData["countPages"] = countPages;
 
-			ViewData["shoppingCartCount"] = shoppingCart.Count;
+			ViewData["shoppingCartCount"] = countCart;
 			return View();
 		}
 
@@ -99,14 +104,19 @@ namespace MvcAssignment.Controllers
 		 */
 		public ActionResult CountCart() {
 			// Load shopping cart from session
-			List<Product> shoppingCart;
+			List<ShoppingCartItem> shoppingCart;
 			if (Session["shoppingCart"] == null) {
-				shoppingCart = new List<Product>();
+				shoppingCart = new List<ShoppingCartItem>();
 			} else {
-				shoppingCart = (List<Product>)Session["shoppingCart"];
+				shoppingCart = (List<ShoppingCartItem>)Session["shoppingCart"];
 			}
 
-			return Json(shoppingCart.Count, JsonRequestBehavior.AllowGet);
+			int count = 0;
+			foreach (ShoppingCartItem ci in shoppingCart) {
+				count += ci.quantity;
+			}
+
+			return Json(count, JsonRequestBehavior.AllowGet);
 		}
 
 		/**
@@ -115,12 +125,12 @@ namespace MvcAssignment.Controllers
 		 */
 		public ActionResult ShowCart() {
 			// Load shopping cart from session
-			List<Product> shoppingCart;
+			List<ShoppingCartItem> shoppingCart;
 			if (Session["shoppingCart"] == null) {
-				shoppingCart = new List<Product>();
+				shoppingCart = new List<ShoppingCartItem>();
 			} else {
-				shoppingCart = (List<Product>)Session["shoppingCart"];
-			}
+				shoppingCart = (List<ShoppingCartItem>)Session["shoppingCart"];
+			}			
 
 			return PartialView("_PartialShoppingCart", shoppingCart);
 		}
@@ -138,15 +148,51 @@ namespace MvcAssignment.Controllers
 						   select p).FirstOrDefault();
 
 			// Load shopping cart from session
-			List<Product> shoppingCart;
+			List<ShoppingCartItem> shoppingCart;
 			if (Session["shoppingCart"] == null) {
-				shoppingCart = new List<Product>();
+				shoppingCart = new List<ShoppingCartItem>();
 			} else {
-				shoppingCart = (List<Product>)Session["shoppingCart"];
+				shoppingCart = (List<ShoppingCartItem>)Session["shoppingCart"];
 			}
 
-			// Add new product to shopping cart
-			shoppingCart.Add(product);
+			bool exist = false;
+			foreach (ShoppingCartItem ci in shoppingCart) {
+				if (ci.isKindOf(product)) {
+					ci.quantity = ci.quantity + 1;
+					exist = true;
+					break;
+				}
+			}
+
+			if (!exist) {
+				shoppingCart.Add(new ShoppingCartItem(product));
+			}
+
+			// Save shopping cart
+			Session["shoppingCart"] = shoppingCart;
+
+			return PartialView("_PartialShoppingCart", shoppingCart);
+		}
+
+		/**
+		 * Remove item from shopping cart.
+		 * @param int	Product id.
+		 * @return		Partial HTML view of the shopping cart.
+		 */
+		public ActionResult RemoveFromCart(int id) {
+			// Load shopping cart from session
+			List<ShoppingCartItem> shoppingCart;
+			if (Session["shoppingCart"] == null) {
+				shoppingCart = new List<ShoppingCartItem>();
+			} else {
+				shoppingCart = (List<ShoppingCartItem>)Session["shoppingCart"];
+			}
+
+			foreach (ShoppingCartItem ci in shoppingCart.ToList()) {
+				if (ci.id == id) {
+					shoppingCart.Remove(ci);
+				}
+			}
 
 			// Save shopping cart
 			Session["shoppingCart"] = shoppingCart;
