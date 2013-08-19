@@ -383,6 +383,10 @@ h1 + .muted {
 		font: bold 14px "Open Sans","sans-serif";
 	}
 
+.product-details h3 {
+	font: 25px "Open Sans","sans-serif";
+}
+
 .product-details img {
 	width: 350px;
 	height: 350px;
