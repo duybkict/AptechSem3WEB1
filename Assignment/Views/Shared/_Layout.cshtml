@@ -11,8 +11,6 @@
 	@Scripts.Render("~/bundle/jquery")
 	@Scripts.Render("~/Scripts/bootstrap")
 	@Scripts.Render("~/Scripts/validate")
-
-	@{var controller = @ViewContext.RouteData.Values["controller"];}
 </head>
 <body>
 	<!-- navbar -->
@@ -35,13 +33,13 @@
 			<div class="container">
 				<div class="nav-collapse collapse">
 					<ul class="nav">						
-						<li class="@if (controller.Equals("Home")) { <text>active</text> } ">
+						<li class="@if (ViewBag.Title.Equals("Home")) { <text>active</text> } ">
 							<a href="@Url.Action("Index", "Home", null)">Home</a>
 						</li>
-						<li class="@if (controller.Equals("Products")) { <text>active</text> } ">
+						<li class="@if (ViewBag.Title.Equals("Products") || ViewBag.Title.Equals("Product")) { <text>active</text> } ">
 							<a href="@Url.Action("Index", "Products", null)">Shop Online</a>
 						</li>
-						<li class="@if (controller.Equals("AboutUs")) { <text>active</text> } ">
+						<li class="@if (ViewBag.Title.Equals("AboutUs")) { <text>active</text> } ">
 							<a href="@Url.Action("Index", "AboutUs", null)">About Us</a>
 						</li>
 					</ul>

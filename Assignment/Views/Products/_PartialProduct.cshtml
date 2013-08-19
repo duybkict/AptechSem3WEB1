@@ -1,7 +1,7 @@
 ﻿@model Product
 
 <div class="span3 product-box small">
-	<a href="#">
+	<a href="@Url.Action("Index", "Product", new {id = @Model.id} )">
 		<img src="~/Resources/products/@(Model.alias).jpg" />
 		@Model.name
 

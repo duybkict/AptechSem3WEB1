@@ -1,0 +1,39 @@
+﻿@{
+	Product product = (Product)ViewData["product"];
+
+	ViewBag.Title = "Product";
+	Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!-- .content -->
+<div class="content">
+	<div class="container product-details">
+		<img src="~/Resources/products/@(product.alias).jpg" class="pull-left" />
+		<h4>@product.name</h4>
+
+		<span class="product-price">@String.Format("{0:0.000}", product.price) $</span>
+
+		<br />
+
+		@if (product.old_price > 0 && product.old_price > product.price) {
+			<text>Old price for</text> <span class="old-product-price">@String.Format("{0:0.000}", product.old_price) $</span>
+		}		
+
+		@{var saleRate = Convert.ToInt32((product.old_price - product.price) / product.old_price * 100);}
+
+		@if (saleRate > 0) {
+			<text>, currently save up to</text> <span class="product-discount-rate">@saleRate %</span>
+			<br />
+		}
+
+		<button class="btn-red " onclick="addToCart(@product.id)">Add to Cart</button>
+
+		<br />
+
+		<strong>Product Description</strong><br />
+		@product.description
+
+	</div>
+	<!--/ container -->
+</div>
+<!--/ content -->

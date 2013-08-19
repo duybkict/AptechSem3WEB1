@@ -172,10 +172,6 @@ a {
 	background: #EDEDED;
 }
 
-	.jumbotron .container-fluid {
-		padding: 0px;
-	}
-
 	.jumbotron .subtitle {
 		font: bold 22px/1.2em "Open Sans","sans-serif";
 		color: rgb(204, 16, 19);
@@ -187,7 +183,8 @@ a {
 
 .content {
 	margin-top: 20px;
-	min-height: 455px;
+	padding-bottom: 30px;
+	min-height: 425px;
 }
 
 	.content .row-categories {
@@ -286,7 +283,7 @@ a {
 			color: rgb(0, 85, 128);
 		}
 
-		.row-products .product-box .old-product-price, #modalShoppingCart .modal-body .old-product-price {
+		.row-products .product-box .old-product-price, #modalShoppingCart .modal-body .old-product-price, .product-details .old-product-price {
 			display: block;
 			font: 11px "Open Sans","sans-serif";
 			color: rgb(51, 51, 51);
@@ -358,11 +355,11 @@ h1 + .muted {
 	margin-left: -400px;
 }
 
-#modalShoppingCart .modal-body {
-	min-height: 120px;
-	max-height: 241px;
-	padding: 0px 15px;
-}
+	#modalShoppingCart .modal-body {
+		min-height: 120px;
+		max-height: 241px;
+		padding: 0px 15px;
+	}
 
 	#modalShoppingCart .modal-footer button:first-child {
 		margin-top: 8px;
@@ -372,9 +369,9 @@ h1 + .muted {
 		margin-bottom: 0px;
 	}
 
-	#modalShoppingCart .modal-body table tbody tr {
-		height: 120px;		
-	}
+		#modalShoppingCart .modal-body table tbody tr {
+			height: 120px;
+		}
 
 	#modalShoppingCart .modal-body img {
 		width: 100px;
@@ -385,3 +382,29 @@ h1 + .muted {
 		color: rgb(204, 16, 19);
 		font: bold 14px "Open Sans","sans-serif";
 	}
+
+.product-details img {
+	width: 350px;
+	height: 350px;
+}
+
+.product-details .old-product-price {
+	font: 15px "Open Sans","sans-serif";
+	display: inline-block;
+}
+
+.product-details .product-price {
+	display: inline;
+	font: bold 30px "Open Sans","sans-serif";
+	color: rgb(204, 16, 19);
+}
+
+.product-details .product-discount-rate {
+	display: inline;
+	font: bold 18px "Open Sans","sans-serif";
+	color: rgb(204, 16, 19);
+}
+
+.product-details button {
+	margin: 15px 0px;
+}
