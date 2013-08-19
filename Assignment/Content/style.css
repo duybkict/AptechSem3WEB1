@@ -360,6 +360,7 @@ h1 + .muted {
 		min-height: 120px;
 		max-height: 360px;
 		padding: 0px 15px;
+		overflow-y: scroll;
 	}
 
 	#modalShoppingCart .modal-footer button:first-child {
@@ -395,8 +396,12 @@ h1 + .muted {
 		}
 
 		#modalShoppingCart .modal-footer .price-total {
-			margin-right: 10px;
+			margin-right: 20px;
 			min-width: 160px;			
+		}
+
+		#modalShoppingCart .modal-footer button.btn-red {
+			margin-right: 5px;
 		}
 
 .product-details h3 {
