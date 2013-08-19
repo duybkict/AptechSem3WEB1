@@ -352,12 +352,13 @@ h1 + .muted {
 
 #modalShoppingCart {
 	width: 800px;
+	margin-top: -20px;
 	margin-left: -400px;
 }
 
 	#modalShoppingCart .modal-body {
 		min-height: 120px;
-		max-height: 240px;
+		max-height: 360px;
 		padding: 0px 15px;
 	}
 
