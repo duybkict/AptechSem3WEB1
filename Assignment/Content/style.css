@@ -168,9 +168,13 @@ a {
 		}
 
 .jumbotron {
-	padding: 30px 10px 10px;
+	padding: 20px 10px 30px;
 	background: #EDEDED;
 }
+
+	.jumbotron .container-fluid {
+		padding: 0px;
+	}
 
 	.jumbotron .subtitle {
 		font: bold 22px/1.2em "Open Sans","sans-serif";
