@@ -11,9 +11,10 @@
 	@Scripts.Render("~/bundle/jquery")
 	@Scripts.Render("~/Scripts/bootstrap")
 	@Scripts.Render("~/Scripts/validate")
+
+	@{var controller = @ViewContext.RouteData.Values["controller"];}
 </head>
 <body>
-
 	<!-- navbar -->
 	<div class="navbar">
 
@@ -33,19 +34,15 @@
 		<div class="navbar-inner">
 			<div class="container">
 				<div class="nav-collapse collapse">
-
-					<ul class="nav">
-						<li class="active">
-							<a href="./index.html">Home</a>
+					<ul class="nav">						
+						<li class="@if (controller.Equals("Home")) { <text>active</text> } ">
+							<a href="@Url.Action("Index", "Home", null)">Home</a>
 						</li>
-						<li class="">
-							<a href="#">About Us</a>
+						<li class="@if (controller.Equals("Products")) { <text>active</text> } ">
+							<a href="@Url.Action("Index", "Products", null)">Shop Online</a>
 						</li>
-						<li class="">
-							<a href="#">Shop Online</a>
-						</li>
-						<li class="">
-							<a href="#">Visit Us</a>
+						<li class="@if (controller.Equals("AboutUs")) { <text>active</text> } ">
+							<a href="@Url.Action("Index", "AboutUs", null)">About Us</a>
 						</li>
 					</ul>
 
@@ -59,7 +56,7 @@
 					<ul class="nav pull-right">
 						<li class="">
 							<a href="#" onclick="showCart()">
-								Cart (<span id="shoppingCartCount">@ViewData["shoppingCartCount"]</span>)
+								Cart (<span id="shoppingCartCount"></span>)
 							</a>
 						</li>
 					</ul>
@@ -86,6 +83,16 @@
 	</div>
 
 	<script type="text/javascript">
+		$.ajax({
+			url: '/Products/CountCart',
+			success: function (result) {
+				$('#shoppingCartCount').html(result);
+			},
+			error: function (jqXHR, textStatus, errorThrown) {
+				alert("An error has occured: " + errorThrown);
+			}
+		});
+
 		function showCart() {
 			$.ajax({
 				url: '/Products/ShowCart',
