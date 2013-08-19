@@ -66,16 +66,18 @@ GO
 CREATE TABLE [Order] (
 	id int PRIMARY KEY IDENTITY,
 	order_contact_id int NOT NULL REFERENCES Contact(id),
-	receive_contact_id int NULL REFERENCES Contact(id),
-	company bit DEFAULT 0,
-	company_name varchar(256),
-	company_address text, -- JSON
-	company_taxcode varchar(256),
-	creditcard bit DEFAULT 0,
-	creditcard_name varchar(256),
-	creditcard_no varchar(32),
-	creditcard_expired date,
-	creditcard_ccv varchar(8),
+	receiver_email varchar(64),
+	receiver_fullname varchar(64),
+	receiver_address text, -- JSON
+--	company bit DEFAULT 0,
+--	company_name varchar(256),
+--	company_address text, -- JSON
+--	company_taxcode varchar(256),
+--	creditcard bit DEFAULT 0,
+--	creditcard_name varchar(256),
+--	creditcard_no varchar(32),
+--	creditcard_expired date,
+--	creditcard_ccv varchar(8),
 	[status] int NOT NULL CHECK ([status] IN (1, 2, 3)), -- 1: pending; 2: confirmed, 3: done
 	created datetime NOT NULL DEFAULT GETDATE(),
 	modified timestamp
