@@ -357,7 +357,7 @@ h1 + .muted {
 
 	#modalShoppingCart .modal-body {
 		min-height: 120px;
-		max-height: 241px;
+		max-height: 240px;
 		padding: 0px 15px;
 	}
 
@@ -366,6 +366,7 @@ h1 + .muted {
 	}
 
 	#modalShoppingCart .modal-body table {
+		margin-top: -1px;
 		margin-bottom: 0px;
 	}
 
@@ -382,6 +383,20 @@ h1 + .muted {
 		color: rgb(204, 16, 19);
 		font: bold 14px "Open Sans","sans-serif";
 	}
+
+	#modalShoppingCart .modal-footer {
+		padding-top: 5px;
+	}
+
+		#modalShoppingCart .modal-footer > div:first-child {
+			text-align: right;
+			font: 18px "Open Sans","sans-serif";
+		}
+
+		#modalShoppingCart .modal-footer .price-total {
+			margin-right: 10px;
+			min-width: 160px;			
+		}
 
 .product-details h3 {
 	font: 25px "Open Sans","sans-serif";
