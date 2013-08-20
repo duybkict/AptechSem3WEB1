@@ -164,6 +164,126 @@
     <Content Include="Global.asax" />
     <Content Include="Content\bootstrap-responsive.css" />
     <Content Include="Content\bootstrap.css" />
+    <Content Include="Resources\products\apple_ipad_4_with_retina_display_128gb_4g_white.jpg" />
+    <Content Include="Resources\products\apple_ipad_4_with_retina_display_16gb_4g_black.jpg" />
+    <Content Include="Resources\products\apple_ipad_4_with_retina_display_16gb_4g_white.jpg" />
+    <Content Include="Resources\products\apple_ipad_4_with_retina_display_16gb_wifi_black.jpg" />
+    <Content Include="Resources\products\apple_ipad_4_with_retina_display_16gb_wifi_white.jpg" />
+    <Content Include="Resources\products\apple_ipad_4_with_retina_display_32gb_4g_black.jpg" />
+    <Content Include="Resources\products\apple_ipad_4_with_retina_display_32gb_4g_white.jpg" />
+    <Content Include="Resources\products\apple_ipad_4_with_retina_display_32gb_wifi_black.jpg" />
+    <Content Include="Resources\products\apple_ipad_4_with_retina_display_32gb_wifi_white.jpg" />
+    <Content Include="Resources\products\apple_ipad_4_with_retina_display_64gb_4g_black.jpg" />
+    <Content Include="Resources\products\apple_ipad_4_with_retina_display_64gb_4g_white.jpg" />
+    <Content Include="Resources\products\apple_ipad_4_with_retina_display_64gb_wifi_black.jpg" />
+    <Content Include="Resources\products\apple_ipad_4_with_retina_display_64gb_wifi_white.jpg" />
+    <Content Include="Resources\products\apple_ipad_mini_16gb_4g_black.jpg" />
+    <Content Include="Resources\products\apple_ipad_mini_16gb_4g_white.jpg" />
+    <Content Include="Resources\products\apple_ipad_mini_16gb_wifi_black.jpg" />
+    <Content Include="Resources\products\apple_ipad_mini_16gb_wifi_white.jpg" />
+    <Content Include="Resources\products\apple_ipad_mini_32gb_4g_black.jpg" />
+    <Content Include="Resources\products\apple_ipad_mini_32gb_4g_white.jpg" />
+    <Content Include="Resources\products\apple_ipad_mini_32gb_wifi_black.jpg" />
+    <Content Include="Resources\products\apple_ipad_mini_32gb_wifi_white.jpg" />
+    <Content Include="Resources\products\apple_ipad_mini_64gb_4g_black.jpg" />
+    <Content Include="Resources\products\apple_ipad_mini_64gb_4g_white.jpg" />
+    <Content Include="Resources\products\apple_ipad_mini_64gb_wifi_black.jpg" />
+    <Content Include="Resources\products\apple_ipad_mini_64gb_wifi_white.jpg" />
+    <Content Include="Resources\products\apple_iphone4s_16gb_black.jpg" />
+    <Content Include="Resources\products\apple_iphone4s_16gb_white.jpg" />
+    <Content Include="Resources\products\apple_iphone5_retina_4_16gb_black.jpg" />
+    <Content Include="Resources\products\apple_iphone5_retina_4_16gb_white.jpg" />
+    <Content Include="Resources\products\apple_iphone5_retina_4_32gb_black.jpg" />
+    <Content Include="Resources\products\apple_iphone5_retina_4_32gb_white.jpg" />
+    <Content Include="Resources\products\blackberry_bold_9900_tft_28_8gb_qwerty_black.jpg" />
+    <Content Include="Resources\products\blackberry_bold_9900_tft_28_8gb_qwerty_white.jpg" />
+    <Content Include="Resources\products\blackberry_curve_9220_tft_244_qwerty_black.jpg" />
+    <Content Include="Resources\products\blackberry_curve_9220_tft_244_qwerty_white.jpg" />
+    <Content Include="Resources\products\blackberry_curve_9320_tft_244_qwerty_black.jpg" />
+    <Content Include="Resources\products\blackberry_curve_9320_tft_244_qwerty_white.jpg" />
+    <Content Include="Resources\products\blackberry_porsche_design_p9981_tft_28_8gb_qwerty_titanium_silver.jpg" />
+    <Content Include="Resources\products\blackberry_z10_lcd_42_16gb_black.jpg" />
+    <Content Include="Resources\products\blackberry_z10_lcd_42_16gb_white.jpg" />
+    <Content Include="Resources\products\google_nexus_4_true_hd_ips_47_16gb_black.jpg" />
+    <Content Include="Resources\products\google_nexus_7_16gb_wifi_black.jpg" />
+    <Content Include="Resources\products\google_nexus_7_32gb_3g_black.jpg" />
+    <Content Include="Resources\products\google_nexus_7_32gb_wifi_black.jpg" />
+    <Content Include="Resources\products\htc_8s_4_4gb_black.jpg" />
+    <Content Include="Resources\products\htc_8s_4_4gb_grey.jpg" />
+    <Content Include="Resources\products\htc_8s_4_4gb_red.jpg" />
+    <Content Include="Resources\products\htc_8x_s_lcd2_43_16gb_black.jpg" />
+    <Content Include="Resources\products\htc_8x_s_lcd2_43_16gb_blue.jpg" />
+    <Content Include="Resources\products\nokia_lumia_520_ips_4_8gb_black.jpg" />
+    <Content Include="Resources\products\nokia_lumia_520_ips_4_8gb_white.jpg" />
+    <Content Include="Resources\products\nokia_lumia_520_ips_4_8gb_yellow.jpg" />
+    <Content Include="Resources\products\nokia_lumia_620_tft_38_8gb_black.jpg" />
+    <Content Include="Resources\products\nokia_lumia_620_tft_38_8gb_blue.jpg" />
+    <Content Include="Resources\products\nokia_lumia_620_tft_38_8gb_orange.jpg" />
+    <Content Include="Resources\products\nokia_lumia_620_tft_38_8gb_pink.jpg" />
+    <Content Include="Resources\products\nokia_lumia_620_tft_38_8gb_white.jpg" />
+    <Content Include="Resources\products\nokia_lumia_720_ips_clearback_43_8gb_black.jpg" />
+    <Content Include="Resources\products\nokia_lumia_720_ips_clearback_43_8gb_red.jpg" />
+    <Content Include="Resources\products\nokia_lumia_720_ips_clearback_43_8gb_white.jpg" />
+    <Content Include="Resources\products\nokia_lumia_720_ips_clearback_43_8gb_yellow.jpg" />
+    <Content Include="Resources\products\nokia_lumia_820_amoled_4_8gb_black.jpg" />
+    <Content Include="Resources\products\nokia_lumia_820_amoled_4_8gb_red.jpg" />
+    <Content Include="Resources\products\nokia_lumia_820_amoled_4_8gb_white.jpg" />
+    <Content Include="Resources\products\nokia_lumia_920_puremotion_hd_45_32gb_black.jpg" />
+    <Content Include="Resources\products\nokia_lumia_920_puremotion_hd_45_32gb_red.jpg" />
+    <Content Include="Resources\products\nokia_lumia_920_puremotion_hd_45_32gb_white.jpg" />
+    <Content Include="Resources\products\nokia_lumia_920_puremotion_hd_45_32gb_yellow.jpg" />
+    <Content Include="Resources\products\samsung_galaxy_note_101_n8000_16gb_3g_black.jpg" />
+    <Content Include="Resources\products\samsung_galaxy_note_101_n8000_16gb_3g_red.jpg" />
+    <Content Include="Resources\products\samsung_galaxy_note_101_n8000_16gb_3g_white.jpg" />
+    <Content Include="Resources\products\samsung_galaxy_note_80_16gb_4g_white.jpg" />
+    <Content Include="Resources\products\samsung_galaxy_note_ii_n7100_super_amoled_55_16gb_grey.jpg" />
+    <Content Include="Resources\products\samsung_galaxy_note_ii_n7100_super_amoled_55_16gb_white.jpg" />
+    <Content Include="Resources\products\samsung_galaxy_note_n7000_super_amoled_53_16gb_carbon_blue.jpg" />
+    <Content Include="Resources\products\samsung_galaxy_note_n7000_super_amoled_53_16gb_white.jpg" />
+    <Content Include="Resources\products\samsung_galaxy_s3_48_16gb_marble_white.jpg" />
+    <Content Include="Resources\products\samsung_galaxy_s3_48_16gb_pepple_blue.jpg" />
+    <Content Include="Resources\products\samsung_galaxy_s3_mini_i8190_s_amoled_4_8gb_black.jpg" />
+    <Content Include="Resources\products\samsung_galaxy_s3_mini_i8190_s_amoled_4_8gb_brown.jpg" />
+    <Content Include="Resources\products\samsung_galaxy_s3_mini_i8190_s_amoled_4_8gb_white.jpg" />
+    <Content Include="Resources\products\samsung_galaxy_s3_mini_i8190_s_amoled_4_8gb_white_la_fleur.jpg" />
+    <Content Include="Resources\products\samsung_galaxy_s4_i9502_full_hd_499_16gb_2sims_black.jpg" />
+    <Content Include="Resources\products\samsung_galaxy_s4_i9502_full_hd_499_16gb_2sims_white.jpg" />
+    <Content Include="Resources\products\samsung_galaxy_s4_i9502_full_hd_499_16gb_black.jpg" />
+    <Content Include="Resources\products\samsung_galaxy_s4_i9502_full_hd_499_16gb_white.jpg" />
+    <Content Include="Resources\products\samsung_galaxy_tab_2_p3100_16gb_3g_red.jpg" />
+    <Content Include="Resources\products\samsung_galaxy_tab_2_p3100_16gb_3g_silver.jpg" />
+    <Content Include="Resources\products\samsung_galaxy_tab_2_p3100_16gb_3g_white.jpg" />
+    <Content Include="Resources\products\samsung_galaxy_tab_3_101_n5200_16gb_3g_black.jpg" />
+    <Content Include="Resources\products\samsung_galaxy_tab_3_101_n5200_16gb_3g_white.jpg" />
+    <Content Include="Resources\products\samsung_galaxy_tab_3_70_t211_16gb_3g_white.jpg" />
+    <Content Include="Resources\products\samsung_galaxy_tab_3_80_t311_16gb_3g_white.jpg" />
+    <Content Include="Resources\products\sony_xperia_acro_s_lt26_tft_43_16gb_black.jpg" />
+    <Content Include="Resources\products\sony_xperia_acro_s_lt26_tft_43_16gb_white.jpg" />
+    <Content Include="Resources\products\sony_xperia_e_c1505_tft_35_4gb_black.jpg" />
+    <Content Include="Resources\products\sony_xperia_e_c1505_tft_35_4gb_white.jpg" />
+    <Content Include="Resources\products\sony_xperia_ion_lt28h_tft_46_16gb_black.jpg" />
+    <Content Include="Resources\products\sony_xperia_ion_lt28h_tft_46_16gb_red.jpg" />
+    <Content Include="Resources\products\sony_xperia_j_st26i_tft_4_4gb_black.jpg" />
+    <Content Include="Resources\products\sony_xperia_j_st26i_tft_4_4gb_pink.jpg" />
+    <Content Include="Resources\products\sony_xperia_j_st26i_tft_4_4gb_white.jpg" />
+    <Content Include="Resources\products\sony_xperia_j_st26i_tft_4_4gb_yellow.jpg" />
+    <Content Include="Resources\products\sony_xperia_l_c2105_lcd_46_8gb_black.jpg" />
+    <Content Include="Resources\products\sony_xperia_l_c2105_lcd_46_8gb_white.jpg" />
+    <Content Include="Resources\products\sony_xperia_sl_lt26ii_32gb_black.jpg" />
+    <Content Include="Resources\products\sony_xperia_sl_lt26ii_32gb_silver.jpg" />
+    <Content Include="Resources\products\sony_xperia_sp_c5302_lcd_46_8gb_black.jpg" />
+    <Content Include="Resources\products\sony_xperia_sp_c5302_lcd_46_8gb_white.jpg" />
+    <Content Include="Resources\products\sony_xperia_s_43_32gb_black.jpg" />
+    <Content Include="Resources\products\sony_xperia_s_43_32gb_white.jpg" />
+    <Content Include="Resources\products\sony_xperia_tablet_st_sgp321_16gb_4g_black.jpg" />
+    <Content Include="Resources\products\sony_xperia_tablet_st_sgp321_16gb_4g_white.jpg" />
+    <Content Include="Resources\products\sony_xperia_tx_hd_43_16gb_black.jpg" />
+    <Content Include="Resources\products\sony_xperia_tx_hd_43_16gb_white.jpg" />
+    <Content Include="Resources\products\sony_xperia_v_hd_43_8gb_black.jpg" />
+    <Content Include="Resources\products\sony_xperia_v_hd_43_8gb_white.jpg" />
+    <Content Include="Resources\products\sony_xperia_z_full_hd_5_16gb_black.jpg" />
+    <Content Include="Resources\products\sony_xperia_z_full_hd_5_16gb_purple.jpg" />
+    <Content Include="Resources\products\sony_xperia_z_full_hd_5_16gb_white.jpg" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\jquery.min.js" />
     <Content Include="Scripts\validate.min.js" />
@@ -183,10 +303,6 @@
     <Content Include="Resources\img\mobile.jpg" />
     <Content Include="Resources\img\new_arrivals.jpg" />
     <Content Include="Resources\img\shopping_cart.png" />
-    <Content Include="Resources\products\apple-4397-74964-1-catalog.jpg" />
-    <Content Include="Resources\products\blackberry-2662-56776-1-catalog.jpg" />
-    <Content Include="Resources\products\nokia-7194-07184-1-catalog.jpg" />
-    <Content Include="Resources\products\samsung-3642-11236-1-catalog.jpg" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
@@ -211,9 +327,6 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\Home\Index.cshtml" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Resources\products\Thumbs.db" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\fonts\JuraBook.ttf" />
@@ -372,6 +485,7 @@
     <Content Include="Views\Product\Index.cshtml" />
     <Content Include="Views\Checkout\Index.cshtml" />
     <Content Include="Views\Checkout\_PartialCheckoutCart.cshtml" />
+    <None Include="Properties\PublishProfiles\AptechSem3WEB1.pubxml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

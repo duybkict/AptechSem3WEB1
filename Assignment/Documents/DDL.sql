@@ -93,5 +93,6 @@ CREATE TABLE OrderDetail (
 	number int NOT NULL CHECK (number > 0)
 )
 
+SELECT * FROM [OrderDetail]
 SELECT * FROM [Order]
 SELECT * FROM Contact
