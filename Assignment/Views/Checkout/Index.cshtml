@@ -23,7 +23,7 @@
 
 			<script type="text/javascript">
 			$.ajax({
-				url: '/Checkout/ShowCart',
+				url: '@Url.Action("ShowCart", "Checkout")',
 				success: function (result) {
 					$('#checkoutCart').html(result);
 				},

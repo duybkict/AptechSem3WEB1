@@ -6,7 +6,7 @@
 	<title>Electonic Shop</title>
 
 	@Styles.Render("~/Content/bootstrap")
-	@Styles.Render("~/Content/fonts")
+	@*@Styles.Render("~/Content/fonts")*@
 	@Styles.Render("~/Content/custom")
 	@Scripts.Render("~/bundle/jquery")
 	@Scripts.Render("~/Scripts/bootstrap")
@@ -20,7 +20,7 @@
 		<div class="navbar-banner">
 			<div class="container">
 				<a class="brandname pull-left" href="Index.aspx">
-					<img src="../../Resources/img/logo.png" />Electronic
+					<img src="~/Resources/img/logo.png" />Electronic
 					<strong>Shop</strong>
 				</a>
 				<span class="contact">Call us now: 1800 000 000</span>
@@ -88,7 +88,7 @@
 		}
 
 		$.ajax({
-			url: '/Products/CountCart',
+			url: '@Url.Action("CountCart", "Products")',
 			success: function (result) {
 				$('#shoppingCartCount').html(result);
 			},
@@ -99,7 +99,7 @@
 
 		function showCart() {
 			$.ajax({
-				url: '/Products/ShowCart',
+				url: '@Url.Action("ShowCart", "Products")',
 				success: function (result) {
 					$('#modalShoppingCart').html(result);
 				},
@@ -108,7 +108,7 @@
 				},
 				complete: function () {
 					$.ajax({
-						url: '/Products/CountCart',
+						url: '@Url.Action("CountCart", "Products")',
 						success: function (result) {
 							$('#shoppingCartCount').html(result);
 							$('#modalShoppingCartHeader').html('Shopping Cart (' + result + ')');
@@ -124,8 +124,10 @@
 		}
 
 		function addToCart(id) {
+			var url = '@Url.Action("AddToCart", "Products")';
+
 			$.ajax({
-				url: '/Products/AddToCart/' + id,
+				url: url + '/' + id,
 				success: function (result) {
 					$('#modalShoppingCart').html(result);
 				},
@@ -134,7 +136,7 @@
 				},
 				complete: function () {
 					$.ajax({
-						url: '/Products/CountCart',
+						url: '@Url.Action("CountCart", "Products")',
 						success: function (result) {
 							$('#shoppingCartCount').html(result);
 							$('#modalShoppingCartHeader').html('Shopping Cart (' + result + ')');
@@ -150,8 +152,10 @@
 		}
 
 		function removeFromCart(id) {
+			var url = '@Url.Action("RemoveFromCart", "Products")';
+
 			$.ajax({
-				url: '/Products/RemoveFromCart/' + id,
+				url: url + '/' + id,
 				success: function (result) {
 					$('#modalShoppingCart').html(result);
 				},
@@ -160,7 +164,7 @@
 				},
 				complete: function () {
 					$.ajax({
-						url: '/Products/CountCart',
+						url: '@Url.Action("CountCart", "Products")',
 						success: function (result) {
 							$('#shoppingCartCount').html(result);
 							$('#modalShoppingCartHeader').html('Shopping Cart (' + result + ')');
@@ -176,8 +180,10 @@
 		}
 
 		function editCart(id, quantity) {
+			var url = '@Url.Action("EditCart", "Products")';
+
 			$.ajax({
-				url: '/Products/EditCart/' + id + '?quantity=' + quantity,
+				url: url + '/' + id + '?quantity=' + quantity,
 				success: function (result) {
 					$('#modalShoppingCart').html(result);
 				},
@@ -186,7 +192,7 @@
 				},
 				complete: function () {
 					$.ajax({
-						url: '/Products/CountCart',
+						url: '@Url.Action("CountCart", "Products")',
 						success: function (result) {
 							$('#shoppingCartCount').html(result);
 							$('#modalShoppingCartHeader').html('Shopping Cart (' + result + ')');

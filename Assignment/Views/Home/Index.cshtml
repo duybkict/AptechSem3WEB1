@@ -1,4 +1,5 @@
-﻿@{
+﻿
+@{
 	ViewBag.Title = "Home";
 	Layout = "~/Views/Shared/_Layout.cshtml";
 }
@@ -19,7 +20,7 @@
 				</div>
 
 				<div class="span5">
-					<img src="../../Resources/img/feature.png" class="pull-right" />
+					<img src="~/Resources/img/feature.png" class="pull-right" />
 				</div>
 
 			</div>
@@ -39,27 +40,27 @@
 			<!-- row-categories -->
 			<div class="row-fluid row-categories">
 				<div class="">
-					<img src="../Resources/img/apple.jpg" />
+					<img src="~/Resources/img/apple.jpg" />
 					<h6>Apple</h6>
 					<button class="btn-red btn-large" onclick="window.location.href='@Url.Action("Index", "Products", new {filter = 80})'">More Info</button>
 				</div>
 				<div class="">
-					<img src="../Resources/img/android.jpg" />
+					<img src="~/Resources/img/android.jpg" />
 					<h6>Android</h6>
 					<button class="btn-red btn-large" onclick="window.location.href='@Url.Action("Index", "Products", new {filter = 10})'">More Info</button>
 				</div>
 				<div class="">
-					<img src="../Resources/img/windows_phone.jpg" />
+					<img src="~/Resources/img/windows_phone.jpg" />
 					<h6>Windows Phone</h6>
 					<button class="btn-red btn-large" onclick="window.location.href='@Url.Action("Index", "Products", new {filter = 20})'">More Info</button>
 				</div>
 				<div class="">
-					<img src="../Resources/img/blackberry.jpg" />
+					<img src="~/Resources/img/blackberry.jpg" />
 					<h6>Blackberry</h6>
 					<button class="btn-red btn-large" onclick="window.location.href='@Url.Action("Index", "Products", new {filter = 40})'">More Info</button>
 				</div>
 				<div class="">
-					<img src="../Resources/img/accessory.jpg" />
+					<img src="~/Resources/img/accessory.jpg" />
 					<h6>Accessories</h6>
 					<button class="btn-red btn-large" onclick="window.location.href='@Url.Action("Index", "Products", new {filter = 4})'">More Info</button>
 				</div>

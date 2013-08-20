@@ -17,9 +17,9 @@
     String newState = Convert.ToString(Convert.ToInt32(newBinState, 2), 16);
 
     if (currentCatState == 1) {
-	<li class="active"><a href="/Products/Index?filter=@newState&search=@search">@category.name</a></li>
+	<li class="active"><a href="~/Products/Index?filter=@newState&search=@search">@category.name</a></li>
     } else {
-	<li><a href="/Products/Index?filter=@newState&search=@search">@category.name</a></li>
+	<li><a href="~/Products/Index?filter=@newState&search=@search">@category.name</a></li>
     }
 }
 
@@ -65,13 +65,13 @@
 			@if (page <= 1) {
 				<li class="disabled"><a>&lt;&lt;</a></li>
             } else {
-				<li><a href="/Products/Index?filter=@currentState&search=@search">&lt;&lt;</a></li>
+				<li><a href="~/Products/Index?filter=@currentState&search=@search">&lt;&lt;</a></li>
             }
 
 			@if (page <= 1) {
 				<li class="disabled"><a>&lt;</a></li>
             } else {
-				<li><a href="/Products/Index?filter=@currentState&search=@search&page=@(page - 1)">&lt;</a></li>
+				<li><a href="~/Products/Index?filter=@currentState&search=@search&page=@(page - 1)">&lt;</a></li>
             }
 
 			@{int index = (page - 2 < countPages - 4) ? page - 2 : countPages - 4;}
@@ -80,9 +80,9 @@
 			@for (int j = 0; j < 5 && index <= countPages; index++) {
                 if (index >= 1 && index <= countPages) {
                     if (index == page) { 
-				<li class="disabled"><a href="/Products/Index?filter=@currentState&search=@search&page=@index">@index.ToString()</a></li>
+				<li class="disabled"><a href="~/Products/Index?filter=@currentState&search=@search&page=@index">@index.ToString()</a></li>
                     } else {
-				<li><a href="/Products/Index?filter=@currentState&search=@search&page=@index">@index.ToString()</a></li>
+				<li><a href="~/Products/Index?filter=@currentState&search=@search&page=@index">@index.ToString()</a></li>
                     }
                     
                     j++;
@@ -93,13 +93,13 @@
 			@if (page == countPages) {
 				<li class="disabled"><a>&gt;</a></li>
             } else {
-				<li><a href="/Products/Index?filter=@currentState&search=@search&page=@(page + 1)">&gt;</a></li>
+				<li><a href="~/Products/Index?filter=@currentState&search=@search&page=@(page + 1)">&gt;</a></li>
             }
 
 			@if (page >= countPages) {
 				<li class="disabled"><a>&gt;&gt;</a></li>
             } else {
-				<li><a href="/Products/Index?filter=@currentState&search=@search&page=@countPages">&gt;&gt;</a></li>
+				<li><a href="~/Products/Index?filter=@currentState&search=@search&page=@countPages">&gt;&gt;</a></li>
             }
 		</ul>
 	</div>        

@@ -164,6 +164,11 @@
     <Content Include="Global.asax" />
     <Content Include="Content\bootstrap-responsive.css" />
     <Content Include="Content\bootstrap.css" />
+    <Content Include="Resources\img\android.jpg" />
+    <Content Include="Resources\img\apple.jpg" />
+    <Content Include="Resources\img\blackberry.jpg" />
+    <Content Include="Resources\img\feature.jpg" />
+    <Content Include="Resources\img\windows_phone.jpg" />
     <Content Include="Resources\products\apple_ipad_4_with_retina_display_128gb_4g_white.jpg" />
     <Content Include="Resources\products\apple_ipad_4_with_retina_display_16gb_4g_black.jpg" />
     <Content Include="Resources\products\apple_ipad_4_with_retina_display_16gb_4g_white.jpg" />
