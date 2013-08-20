@@ -20,8 +20,7 @@ namespace MvcAssignment.Controllers
         }
 
 		[HttpPost]
-		public ActionResult Index(Contact contact) {
-
+		public ActionResult Index(Contact contact, Order order) {
 
 			return View();
 		}
