@@ -8,19 +8,85 @@ using System.Web.Mvc;
 
 namespace MvcAssignment.Controllers
 {
-    public class CheckoutController : Controller
-    {
-        //
-        // GET: /CheckOut/
+	public class CheckoutController : Controller
+	{
+		//
+		// GET: /CheckOut/
 
 		[HttpGet]
-        public ActionResult Index()
-        {
-            return View();
-        }
+		public ActionResult Index() {
+			return View();
+		}
 
 		[HttpPost]
-		public ActionResult Index(Contact contact, Order order) {
+		public ActionResult Index(String email, String fullname, String telephone, String address,
+String receiver_email, String receiver_fullname, String receiver_telephone, String receiver_address) {
+			ElectonicShopDataContext db = new ElectonicShopDataContext();
+
+			try {
+				Contact contact = new Contact {
+					email = email,
+					fullname = fullname,
+					telephone = telephone,
+					address = address,
+					created = DateTime.Now
+				};
+				db.Contacts.InsertOnSubmit(contact);
+				db.SubmitChanges();
+
+				int lastInsertedContactId = (from c in db.Contacts
+										 orderby c.id descending
+										 select c.id).ToList().FirstOrDefault();
+
+				Order order;
+				if (receiver_address != null) {
+					order = new Order {
+						order_contact_id = lastInsertedContactId,
+						receiver_address = receiver_address,
+						receiver_email = receiver_email,
+						receiver_fullname = receiver_fullname,
+						receiver_telephone = receiver_telephone,
+						created = DateTime.Now,
+						status = 1
+					};
+				} else {
+					order = new Order {
+						order_contact_id = lastInsertedContactId,
+						receiver_address = address,
+						receiver_email = email,
+						receiver_fullname = fullname,
+						receiver_telephone = telephone,
+						created = DateTime.Now,
+						status = 1
+					};
+				}
+				
+
+				db.Orders.InsertOnSubmit(order);
+
+				db.SubmitChanges();
+
+				int lastInsertedOrderId = (from o in db.Orders
+											 orderby o.id descending
+											 select o.id).First();
+
+				List<ShoppingCartItem> shoppingCart = (List<ShoppingCartItem>)Session["shoppingCart"];
+				foreach (ShoppingCartItem ci in shoppingCart) {
+					OrderDetail orderDetail = new OrderDetail {
+						product_id = ci.id,
+						order_id = lastInsertedOrderId,
+						number = ci.quantity
+					};
+
+					db.OrderDetails.InsertOnSubmit(orderDetail);
+
+					db.SubmitChanges();
+				}
+				
+				ViewData["status"] = "success";
+			} catch (Exception e) { 
+				ViewData["status"] = "error";
+			}
 
 			return View();
 		}
@@ -95,5 +161,5 @@ namespace MvcAssignment.Controllers
 			return PartialView("_PartialCheckoutCart", shoppingCart);
 		}
 
-    }
+	}
 }

@@ -45,29 +45,21 @@
       <Column Name="created" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
       <Column Name="modified" Type="System.Data.Linq.Binary" DbType="rowversion NOT NULL" CanBeNull="false" IsVersion="true" />
       <Association Name="Contact_Order" Member="Orders" ThisKey="id" OtherKey="order_contact_id" Type="Order" />
-      <Association Name="Contact_Order1" Member="Orders1" ThisKey="id" OtherKey="receive_contact_id" Type="Order" />
     </Type>
   </Table>
   <Table Name="dbo.[Order]" Member="Orders">
     <Type Name="Order">
       <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
       <Column Name="order_contact_id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="receive_contact_id" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="company" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
-      <Column Name="company_name" Type="System.String" DbType="VarChar(256)" CanBeNull="true" />
-      <Column Name="company_address" Type="System.String" DbType="Text" CanBeNull="true" />
-      <Column Name="company_taxcode" Type="System.String" DbType="VarChar(256)" CanBeNull="true" />
-      <Column Name="creditcard" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
-      <Column Name="creditcard_name" Type="System.String" DbType="VarChar(256)" CanBeNull="true" />
-      <Column Name="creditcard_no" Type="System.String" DbType="VarChar(32)" CanBeNull="true" />
-      <Column Name="creditcard_expired" Type="System.DateTime" DbType="Date" CanBeNull="true" />
-      <Column Name="creditcard_ccv" Type="System.String" DbType="VarChar(8)" CanBeNull="true" />
+      <Column Name="receiver_email" Type="System.String" DbType="VarChar(64)" CanBeNull="true" />
+      <Column Name="receiver_fullname" Type="System.String" DbType="VarChar(64)" CanBeNull="true" />
+      <Column Name="receiver_telephone" Type="System.String" DbType="VarChar(16)" CanBeNull="true" />
+      <Column Name="receiver_address" Type="System.String" DbType="Text NOT NULL" CanBeNull="false" />
       <Column Name="status" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Column Name="created" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
       <Column Name="modified" Type="System.Data.Linq.Binary" DbType="rowversion NOT NULL" CanBeNull="false" IsVersion="true" />
       <Association Name="Order_OrderDetail" Member="OrderDetails" ThisKey="id" OtherKey="order_id" Type="OrderDetail" />
       <Association Name="Contact_Order" Member="Contact" ThisKey="order_contact_id" OtherKey="id" Type="Contact" IsForeignKey="true" />
-      <Association Name="Contact_Order1" Member="Contact1" ThisKey="receive_contact_id" OtherKey="id" Type="Contact" IsForeignKey="true" />
     </Type>
   </Table>
   <Table Name="dbo.OrderDetail" Member="OrderDetails">

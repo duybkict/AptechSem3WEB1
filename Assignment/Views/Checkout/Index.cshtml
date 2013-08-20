@@ -3,6 +3,17 @@
 	Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
+<script type="text/javascript">
+	var status = '@ViewData["status"]';
+
+	if (status == 'success') {
+		alert('Order succesfully!');
+		window.location.href = '@Url.Action("Index", "Products")';
+	} else if (status == 'error') {
+		alert('An error has occurred!');
+	}
+</script>
+
 <!-- .content -->
 <div class="content">
 	<div class="container">
@@ -29,7 +40,7 @@
 					<div class="control-group">
 						<label class="control-label" for="email">Email</label>
 						<div class="controls">
-							<input type="text" id="email" name="contact.email">
+							<input type="text" id="email" name="email">
 							<span class="help-inline"></span>
 						</div>
 					</div>
@@ -37,7 +48,7 @@
 					<div class="control-group">
 						<label class="control-label" for="fullname">Fullname</label>
 						<div class="controls">
-							<input type="text" id="fullname" name="contact.fullname">
+							<input type="text" id="fullname" name="fullname">
 							<span class="help-inline"></span>
 						</div>
 					</div>
@@ -45,7 +56,7 @@
 					<div class="control-group">
 						<label class="control-label" for="telephone">Telephone</label>
 						<div class="controls">
-							<input type="text" id="telephone" name="contact.telephone">
+							<input type="text" id="telephone" name="telephone">
 							<span class="help-inline"></span>
 						</div>
 					</div>
@@ -53,7 +64,7 @@
 					<div class="control-group">
 						<label class="control-label" for="address">Address</label>
 						<div class="controls">
-							<input type="text" id="address" name="contact.address">
+							<input type="text" id="address" name="address">
 							<span class="help-inline"></span>
 						</div>
 					</div>
@@ -70,7 +81,7 @@
 					<div class="control-group">
 						<label class="control-label" for="receiver_email">Receiver Email</label>
 						<div class="controls">
-							<input type="text" id="receiver_email" name="order.receiver_email">
+							<input type="text" id="receiver_email" name="receiver_email">
 							<span class="help-inline"></span>
 						</div>
 					</div>
@@ -78,7 +89,7 @@
 					<div class="control-group">
 						<label class="control-label" for="receiver_fullname">Receiver Name</label>
 						<div class="controls">
-							<input type="text" id="receiver_fullname" name="order.receiver_fullname">
+							<input type="text" id="receiver_fullname" name="receiver_fullname">
 							<span class="help-inline"></span>
 						</div>
 					</div>
@@ -86,7 +97,7 @@
 					<div class="control-group">
 						<label class="control-label" for="receiver_telephone">Receiver Telephone</label>
 						<div class="controls">
-							<input type="text" id="receiver_telephone" name="order.receiver_telephone">
+							<input type="text" id="receiver_telephone" name="receiver_telephone">
 							<span class="help-inline"></span>
 						</div>
 					</div>
@@ -94,7 +105,7 @@
 					<div class="control-group">
 						<label class="control-label" for="receiver_address">Receiver Address</label>
 						<div class="controls">
-							<input type="text" id="receiver_address" name="order.receiver_address">
+							<input type="text" id="receiver_address" name="receiver_address">
 							<span class="help-inline"></span>
 						</div>
 					</div>
@@ -118,52 +129,52 @@
 
 	$('#formCheckout').validate({
 		rules: {
-			'contact.fullname': "required",
-			'contact.email': {
+			'fullname': "required",
+			'email': {
 				required: true,
 				email: true
 			},
-			'contact.telephone': {
+			'telephone': {
 				required: true,
 				minlength: 10,
 				number: true
 			},
-			'contact.address': {
+			'address': {
 				required: true
 			},
-			'order.receiver_email': {
+			'receiver_email': {
 				email: true
 			},
-			'order.receiver_telephone': {
+			'receiver_telephone': {
 				minlength: 10,
 				number: true
 			},
-			'order.receiver_address': {
+			'receiver_address': {
 				required: true
 			}
 		},
 		messages: {
-			'contact.fullname': "You have to enter your fullname.",
-			'contact.email': {
+			'fullname': "You have to enter your fullname.",
+			'email': {
 				required: "We need your email address to contact you.",
 				email: "Your email address must be in the format of name@domain.com."
 			},
-			'contact.telephone': {
+			'telephone': {
 				required: "We need your telephone number to contact you.",
 				minlength: jQuery.format("Your telephone number must be at least {0} digits."),
 				number: "Your telephone number must be all digits."
 			},
-			'contact.address': {
+			'address': {
 				required: "You have to enter your address."
 			},
-			'order.receiver_telephone': {
+			'receiver_telephone': {
 				minlength: jQuery.format("Receiver's telephone number must be at least {0} digits."),
 				number: "Receiver's telephone number must be all digits."
 			},
-			'order.receiver_address': {
+			'receiver_address': {
 				required: "You have to enter receiver's address."
 			},
-			'order.receiver_email': {
+			'receiver_email': {
 				required: "Receiver's email address must be in the format of name@domain.com."
 			}
 		},

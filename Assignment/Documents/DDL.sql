@@ -92,3 +92,6 @@ CREATE TABLE OrderDetail (
 	CONSTRAINT unOrderDetail UNIQUE(order_id, product_id),
 	number int NOT NULL CHECK (number > 0)
 )
+
+SELECT * FROM [Order]
+SELECT * FROM Contact
