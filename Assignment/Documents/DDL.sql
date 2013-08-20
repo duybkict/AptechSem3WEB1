@@ -53,7 +53,7 @@ GO
 -- DROP TABLE Contact
 CREATE TABLE Contact (
 	id int PRIMARY KEY IDENTITY,
-	email varchar(64) NOT NULL UNIQUE,
+	email varchar(64) NOT NULL,
 	fullname varchar(64) NOT NULL,
 	telephone varchar(16) NOT NULL,
 	address text, -- JSON

@@ -1,4 +1,5 @@
-﻿using MvcAssignment.Models;
+﻿using MvcAssignment.Linq;
+using MvcAssignment.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,10 +13,18 @@ namespace MvcAssignment.Controllers
         //
         // GET: /CheckOut/
 
+		[HttpGet]
         public ActionResult Index()
         {
             return View();
         }
+
+		[HttpPost]
+		public ActionResult Index(Contact contact) {
+
+
+			return View();
+		}
 
 		/**
 		 * Show checkout cart.
