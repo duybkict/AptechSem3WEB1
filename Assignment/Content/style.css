@@ -404,6 +404,16 @@ h1 + .muted {
 			margin-right: 5px;
 		}
 
+#checkoutCart > div {
+	text-align: right;
+	font: 18px "Open Sans","sans-serif";
+}
+
+	#checkoutCart .price-total {
+		font: 24px "Open Sans","sans-serif";
+		min-width: 200px;
+	}
+
 .product-details h3 {
 	font: 25px "Open Sans","sans-serif";
 }
@@ -433,3 +443,25 @@ h1 + .muted {
 .product-details button {
 	margin: 15px 0px;
 }
+
+.checkoutTitle {
+	display: block;
+	width: 100%;
+	padding: 0px;
+	margin-top: 0px;
+	margin-bottom: 20px;	
+	font: bold 26px/1.1em "Open Sans","sans-serif";	
+	line-height: 40px;
+	border-width: 0px 0px 1px;
+	border-style: none none solid;
+	border-color: -moz-use-text-color -moz-use-text-color rgb(229, 229, 229);
+	-moz-border-top-colors: none;
+	-moz-border-right-colors: none;
+	-moz-border-bottom-colors: none;
+	-moz-border-left-colors: none;
+	border-image: none;
+}
+
+	.checkoutTitle.no-underline {
+		border-width: 0px;
+	}

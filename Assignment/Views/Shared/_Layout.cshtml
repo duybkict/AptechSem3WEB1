@@ -52,7 +52,7 @@
 					</form>
 
 					<ul class="nav pull-right">
-						<li class="">
+						<li>
 							<a href="#" onclick="showCart()">
 								Cart (<span id="shoppingCartCount"></span>)
 							</a>
@@ -81,6 +81,12 @@
 	</div>
 
 	<script type="text/javascript">
+		var viewBagTitle = '@(ViewBag.Title)';
+
+		if (viewBagTitle == 'Checkout') {
+			$('.navbar .navbar-inner').hide();
+		}
+
 		$.ajax({
 			url: '/Products/CountCart',
 			success: function (result) {

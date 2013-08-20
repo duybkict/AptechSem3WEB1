@@ -68,7 +68,7 @@ CREATE TABLE [Order] (
 	order_contact_id int NOT NULL REFERENCES Contact(id),
 	receiver_email varchar(64),
 	receiver_fullname varchar(64),
-	receiver_address text, -- JSON
+	receiver_address text NOT NULL, -- JSON
 --	company bit DEFAULT 0,
 --	company_name varchar(256),
 --	company_address text, -- JSON

@@ -1,0 +1,54 @@
+﻿@using MvcAssignment.Models
+@model List<ShoppingCartItem>
+
+@{decimal total = 0;}
+
+
+<script type="text/javascript">
+	count = parseInt('@(Model.Count)');	
+
+	if (count <= 0) {
+		alert("You have no item in your cart!");
+		window.location.href = '@Url.Action("Index", "Products")';
+	}	
+</script>
+
+<span class="checkoutTitle no-underline">Shopping Cart</span>
+
+<table class="table">
+	<tbody>
+		@foreach (ShoppingCartItem item in @Model) { 
+			<tr class="shoppingCartItem">
+				<td>
+					<img src="~/Resources/products/@(item.alias).jpg" class="pull-left"/>
+					<span>@item.name</span>
+				</td>
+				<td style="width: 15%; text-align: center;">
+					<span class="product-price">@String.Format("{0:0.000}", item.price) $</span><br />
+
+					@if (item.old_price > 0 && item.old_price > item.price) {
+						<span class="old-product-price">@String.Format("{0:0.000}", item.old_price) $</span>
+					}
+
+					@{var saleRate = Convert.ToInt32((item.old_price - item.price) / item.old_price * 100);}
+
+					@if (saleRate > 0) {
+						<span class="product-discount-rate">@saleRate % Off</span>
+					}
+				</td>
+				<td style="width: 10%; text-align: center;">
+					@item.quantity
+				</td>
+				<td style="width: 20%; text-align: right;">
+					<span class="product-price">@String.Format("{0:0.000}", item.price * item.quantity) $</span>
+					@{total = total + item.price * item.quantity;}
+				</td>
+			</tr>
+		}
+	</tbody>
+</table>
+
+<div>
+	<strong>Total:</strong><span class="pull-right price-total">@String.Format("{0:0.000}", total) $</span>
+</div>
+

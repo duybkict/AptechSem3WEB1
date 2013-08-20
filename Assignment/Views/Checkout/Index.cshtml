@@ -1,5 +1,5 @@
 ﻿@{
-	ViewBag.Title = "CheckOut";
+	ViewBag.Title = "Checkout";
 	Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
@@ -7,22 +7,105 @@
 <div class="content">
 	<div class="container">
 
-		<h1>About Us</h1>
+			<div id="checkoutCart" class="well">
+			</div>
 
-		<p>
-			Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras aliquet vulputate pharetra. Nullam sit amet tellus sagittis, aliquam nisi id, rhoncus velit. Nulla mattis a ligula a varius. Integer ipsum lorem, rhoncus eu adipiscing pellentesque, volutpat eget purus. Proin ut ante bibendum, dictum eros eget, semper lacus. 
-			
-		<p>Praesent eleifend, sapien in malesuada placerat, nibh leo dapibus turpis, a volutpat felis dolor eu augue. Aliquam in cursus dolor. Suspendisse facilisis enim at ligula fermentum dapibus. Sed ullamcorper laoreet dignissim. Nam mollis tincidunt urna, vitae blandit nibh imperdiet at. Etiam interdum lobortis velit. Cras pellentesque posuere enim ac pharetra.</p>
+			<script type="text/javascript">
+			$.ajax({
+				url: '/Checkout/ShowCart',
+				success: function (result) {
+					$('#checkoutCart').html(result);
+				},
+				error: function (jqXHR, textStatus, errorThrown) {
+					alert("An error has occured: " + errorThrown);
+				}
+			});
+			</script>
 
-		<p>Cras imperdiet felis at sapien varius sollicitudin. Fusce sit amet turpis id augue lobortis suscipit sit amet sit amet orci. Quisque nisi libero, rhoncus at rhoncus a, convallis id nibh. Donec ornare sed elit vel pretium. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+			<div class="well">
+				<span class="checkoutTitle">Order Details</span>
 
-		<ul>
-			<li>Address: 123 Mauris Tincidunt</li>
-			<li>Telephone: 1800 000 000</li>
-			<li>Fax: +087 654321</li>
-			<li>Email: contact@email.com</li>
-		</ul>
+				<form class="form-horizontal">
+					<div class="control-group">
+						<label class="control-label" for="email">Email</label>
+						<div class="controls">
+							<input type="text" id="email">
+							<span class="help-inline"></span>
+						</div>
+					</div>
 
+					<div class="control-group">
+						<label class="control-label" for="fullname">Fullname</label>
+						<div class="controls">
+							<input type="text" id="fullname">
+							<span class="help-inline"></span>
+						</div>
+					</div>
+
+					<div class="control-group">
+						<label class="control-label" for="telephone">Telephone</label>
+						<div class="controls">
+							<input type="text" id="telephone">
+							<span class="help-inline"></span>
+						</div>
+					</div>
+
+					<div class="control-group">
+						<label class="control-label" for="address">Address</label>
+						<div class="controls">
+							<input type="text" id="address">
+							<span class="help-inline"></span>
+						</div>
+					</div>
+
+					<hr />
+
+					<div class="control-group">
+						<label class="control-label" for="cbxReceiver">Receiver Address</label>
+						<div class="controls">
+							<input type="checkbox" id="cbxReceiver">							
+						</div>
+					</div>
+
+					<div class="control-group">
+						<label class="control-label" for="receiverEmail">Receiver Email</label>
+						<div class="controls">
+							<input type="text" id="receiverEmail">
+							<span class="help-inline"></span>
+						</div>
+					</div>
+
+					<div class="control-group">
+						<label class="control-label" for="receiverFullname">Receiver Name</label>
+						<div class="controls">
+							<input type="text" id="receiverFullname">
+							<span class="help-inline"></span>
+						</div>
+					</div>
+
+					<div class="control-group">
+						<label class="control-label" for="receiverTelephone">Receiver Telephone</label>
+						<div class="controls">
+							<input type="text" id="receiverTelephone">
+							<span class="help-inline"></span>
+						</div>
+					</div>
+
+					<div class="control-group">
+						<label class="control-label" for="receiverAddress">Receiver Address</label>
+						<div class="controls">
+							<input type="text" id="receiverAddress">
+							<span class="help-inline"></span>
+						</div>
+					</div>
+
+					<div class="form-actions">
+						<button class="btn-large btn-red " style="width:220px;">Submit Order</button>
+					</div>
+
+				</form>
+
+			</div><!--/ well -->
 
 	</div>
 	<!--/ container -->
