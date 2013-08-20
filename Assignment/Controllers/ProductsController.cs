@@ -13,7 +13,7 @@ namespace MvcAssignment.Controllers
 		//
 		// GET: /Products/
 
-		public ActionResult Index(String filter, int page = 1) {
+		public ActionResult Index(String filter, int page = 1, String search = null) {
 			// Initialize datacontext
 			ElectonicShopDataContext db = new ElectonicShopDataContext();
 
@@ -61,6 +61,13 @@ namespace MvcAssignment.Controllers
 
 			List<Product> products = (from p in db.Products
 									  select p).ToList();
+
+			if (search != null) {
+				products = (from p in products
+							where p.name.ToLower().Contains(search.ToLower())
+							select p).ToList();
+			}
+
 			if (filterCategories.Count > 0) {
 				foreach (List<int> filterC in filterCategories) {
 					products = (from p in products
@@ -90,7 +97,7 @@ namespace MvcAssignment.Controllers
 			ViewData["filter"] = filter;
 			ViewData["categoryTree"] = categoryTree;
 			ViewData["products"] = products;
-
+			ViewData["search"] = search;
 			ViewData["page"] = page;
 			ViewData["countPages"] = countPages;
 

@@ -3,6 +3,7 @@
 	Layout = "~/Views/Shared/_Layout.cshtml";	
 
 	var filter = (String)ViewData["filter"];
+	var search = (String)ViewData["search"];
 	var categoryTree = (Dictionary<CategoryParent, List<Category>>)ViewData["categoryTree"];
 	var products = (List<Product>)ViewData["products"];
 	var page = Convert.ToInt32(ViewData["page"]);
@@ -20,7 +21,7 @@
 					@foreach (var catParent in categoryTree.Keys) { 
 						<li class="nav-header">@catParent.name</li>
 						foreach (var category in categoryTree[catParent]) {
-							@MyHtmlHelper.CategoryListItem(category, filter);
+							@MyHtmlHelper.CategoryListItem(category, filter, search);
 						}
 					}
 				</ul>
@@ -32,7 +33,7 @@
 
 				@Html.Partial("_PartialProductList", products)
 
-				@MyHtmlHelper.Paginations(page, countPages, filter)
+				@MyHtmlHelper.Paginations(page, countPages, filter, search)
 			</div>
 
 		</div>

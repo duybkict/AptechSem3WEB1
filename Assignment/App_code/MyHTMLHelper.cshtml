@@ -3,7 +3,7 @@
 @**
  * Generate a html list element of an specific category with state based on current filter state.
  *@
-@helper CategoryListItem(Category category, String currentState) {
+@helper CategoryListItem(Category category, String currentState, String search) {
     String currentBinState = "";
     try {
         currentBinState = Convert.ToString(Convert.ToInt32(currentState.ToString(), 16), 2).PadLeft(64, '0');
@@ -17,9 +17,9 @@
     String newState = Convert.ToString(Convert.ToInt32(newBinState, 2), 16);
 
     if (currentCatState == 1) {
-	<li class="active"><a href="/Products/Index?filter=@newState">@category.name</a></li>
+	<li class="active"><a href="/Products/Index?filter=@newState&search=@search">@category.name</a></li>
     } else {
-	<li><a href="/Products/Index?filter=@newState">@category.name</a></li>
+	<li><a href="/Products/Index?filter=@newState&search=@search">@category.name</a></li>
     }
 }
 
@@ -59,19 +59,19 @@
 	<h1>@title</h1>	
 }
 
-@helper Paginations(int page, int countPages, String currentState) {    
+@helper Paginations(int page, int countPages, String currentState, String search) {    
 	<div class="pagination pagination-centered">
 		<ul>
 			@if (page <= 1) {
 				<li class="disabled"><a>&lt;&lt;</a></li>
             } else {
-				<li><a href="/Products/Index?filter=@currentState">&lt;&lt;</a></li>
+				<li><a href="/Products/Index?filter=@currentState&search=@search">&lt;&lt;</a></li>
             }
 
 			@if (page <= 1) {
 				<li class="disabled"><a>&lt;</a></li>
             } else {
-				<li><a href="/Products/Index?filter=@currentState&page=@(page - 1)">&lt;</a></li>
+				<li><a href="/Products/Index?filter=@currentState&search=@search&page=@(page - 1)">&lt;</a></li>
             }
 
 			@{int index = (page - 2 < countPages - 4) ? page - 2 : countPages - 4;}
@@ -80,9 +80,9 @@
 			@for (int j = 0; j < 5 && index <= countPages; index++) {
                 if (index >= 1 && index <= countPages) {
                     if (index == page) { 
-				<li class="disabled"><a href="/Products/Index?filter=@currentState&page=@index">@index.ToString()</a></li>
+				<li class="disabled"><a href="/Products/Index?filter=@currentState&search=@search&page=@index">@index.ToString()</a></li>
                     } else {
-				<li><a href="/Products/Index?filter=@currentState&page=@index">@index.ToString()</a></li>
+				<li><a href="/Products/Index?filter=@currentState&search=@search&page=@index">@index.ToString()</a></li>
                     }
                     
                     j++;
@@ -93,13 +93,13 @@
 			@if (page == countPages) {
 				<li class="disabled"><a>&gt;</a></li>
             } else {
-				<li><a href="/Products/Index?filter=@currentState&page=@(page + 1)">&gt;</a></li>
+				<li><a href="/Products/Index?filter=@currentState&search=@search&page=@(page + 1)">&gt;</a></li>
             }
 
 			@if (page >= countPages) {
 				<li class="disabled"><a>&gt;&gt;</a></li>
             } else {
-				<li><a href="/Products/Index?filter=@currentState&page=@countPages">&gt;&gt;</a></li>
+				<li><a href="/Products/Index?filter=@currentState&search=@search&page=@countPages">&gt;&gt;</a></li>
             }
 		</ul>
 	</div>        

@@ -82,7 +82,8 @@ String receiver_email, String receiver_fullname, String receiver_telephone, Stri
 
 					db.SubmitChanges();
 				}
-				
+
+				Session["shoppingCart"] = null;
 				ViewData["status"] = "success";
 			} catch (Exception e) { 
 				ViewData["status"] = "error";

@@ -44,9 +44,9 @@
 						</li>
 					</ul>
 
-					<form class="form-search">
+					<form class="form-search" action="@Url.Action("Index", "Products")" method="get">
 						<div class="input-append">
-							<input name="searchQuery" id="searchQuery" type="text" placeholder="Search" />
+							<input name="search" id="search" type="text" placeholder="Search" value='@ViewData["search"]'/>
 							<button class="btn" type="submit">Go</button>
 						</div>
 					</form>
