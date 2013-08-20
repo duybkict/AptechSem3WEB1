@@ -151,18 +151,75 @@
 			'contact.telephone': {
 				required: "We need your telephone number to contact you.",
 				minlength: jQuery.format("Your telephone number must be at least {0} digits."),
-				number: "You telephone number must be all digits."
+				number: "Your telephone number must be all digits."
 			},
 			'contact.address': {
 				required: "You have to enter your address."
 			},
+			'order.receiver_telephone': {
+				minlength: jQuery.format("Receiver's telephone number must be at least {0} digits."),
+				number: "Receiver's telephone number must be all digits."
+			},
 			'order.receiver_address': {
-				required: "You have to enter receiver address."
+				required: "You have to enter receiver's address."
+			},
+			'order.receiver_email': {
+				required: "Receiver's email address must be in the format of name@domain.com."
 			}
 		},
 		errorPlacement: function (error, element) {
 			error.appendTo(element.next('span.help-inline'));
 		},
 		validClass: 'success'
+	});
+
+	if ($('#cbxReceiver').is(':checked')) {
+		$('#receiver_email').attr('disabled', 'disabled');
+		$('#receiver_fullname').attr('disabled', 'disabled');
+		$('#receiver_address').attr('disabled', 'disabled');
+		$('#receiver_telephone').attr('disabled', 'disabled');
+	}
+
+	$('#cbxReceiver').change(function () {
+		if ($(this).is(':checked')) {
+			$('#receiver_email').attr('disabled', 'disabled');
+			$('#receiver_fullname').attr('disabled', 'disabled');
+			$('#receiver_address').attr('disabled', 'disabled');
+			$('#receiver_telephone').attr('disabled', 'disabled');
+
+			$('#receiver_email').val($('#email').val());
+			$('#receiver_fullname').val($('#fullname').val());
+			$('#receiver_telephone').val($('#telephone').val());
+			$('#receiver_address').val($('#address').val());
+		} else {
+			$('#receiver_email').removeAttr('disabled');
+			$('#receiver_fullname').removeAttr('disabled');
+			$('#receiver_address').removeAttr('disabled');
+			$('#receiver_telephone').removeAttr('disabled');
+		}
+	});
+
+	$('#email').change(function () {
+		if ($('#cbxReceiver').is(':checked')) {
+			$('#receiver_email').val($(this).val());
+		}
+	});
+
+	$('#fullname').change(function () {
+		if ($('#cbxReceiver').is(':checked')) {
+			$('#receiver_fullname').val($(this).val());
+		}
+	});
+
+	$('#telephone').change(function () {
+		if ($('#cbxReceiver').is(':checked')) {
+			$('#receiver_telephone').val($(this).val());
+		}
+	});
+
+	$('#address').change(function () {
+		if ($('#cbxReceiver').is(':checked')) {
+			$('#receiver_address').val($(this).val());
+		}
 	});
 </script>
