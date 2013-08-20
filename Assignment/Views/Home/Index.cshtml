@@ -32,7 +32,7 @@
 <!--/ jumbotron -->
 
 <!-- content -->
-<div class="content">
+<div class="content" style="padding-bottom:0px;min-height: 150px !important; height: 300px;">
 	<div class="container">
 		<div class="container">
 
@@ -41,131 +41,33 @@
 				<div class="">
 					<img src="../Resources/img/apple.jpg" />
 					<h6>Apple</h6>
-					<button class="btn-red btn-large">More Info</button>
+					<button class="btn-red btn-large" onclick="window.location.href='@Url.Action("Index", "Products", new {filter = 80})'">More Info</button>
 				</div>
 				<div class="">
 					<img src="../Resources/img/android.jpg" />
 					<h6>Android</h6>
-					<button class="btn-red btn-large">More Info</button>
+					<button class="btn-red btn-large" onclick="window.location.href='@Url.Action("Index", "Products", new {filter = 10})'">More Info</button>
 				</div>
 				<div class="">
 					<img src="../Resources/img/windows_phone.jpg" />
 					<h6>Windows Phone</h6>
-					<button class="btn-red btn-large">More Info</button>
+					<button class="btn-red btn-large" onclick="window.location.href='@Url.Action("Index", "Products", new {filter = 20})'">More Info</button>
 				</div>
 				<div class="">
 					<img src="../Resources/img/blackberry.jpg" />
 					<h6>Blackberry</h6>
-					<button class="btn-red btn-large">More Info</button>
+					<button class="btn-red btn-large" onclick="window.location.href='@Url.Action("Index", "Products", new {filter = 40})'">More Info</button>
 				</div>
 				<div class="">
 					<img src="../Resources/img/accessory.jpg" />
 					<h6>Accessories</h6>
-					<button class="btn-red btn-large">More Info</button>
+					<button class="btn-red btn-large" onclick="window.location.href='@Url.Action("Index", "Products", new {filter = 4})'">More Info</button>
 				</div>
 			</div>
 			<!--/ row-categories -->
-
-			<!-- row-products -->
-			<div class="row-fluid row-products">
-				<a href="#" class="clearfix">
-					<h3><span class="font-red">Special</span> Deals</h3>
-					<span>View more&nbsp;&raquo; </span>
-				</a>
-				<div class="span3 product-box">
-					<a href="#">
-						<img src="../Resources/products/apple-4397-74964-1-catalog.jpg" />
-						Apple iPad 4 (with Retina display) - 32GB / Wifi / White
-							<span class="old-product-price">681.5 $</span>
-						<span class="product-price">634.453 $</span>
-						<span class="product-discount-rate">-7 %</span>
-					</a>
-					<button class="btn-red btn-large">Add to Cart</button>
-				</div>
-				<div class="span3 product-box">
-					<a href="#">
-						<img src="../Resources/products/samsung-3642-11236-1-catalog.jpg" />
-						Samsung Galaxy S4 (i9500) - Full HD 4.99'' / 13MP / 16GB / White
-							<span class="old-product-price">715.763 $</span>
-						<span class="product-price">704.953 $</span>
-						<span class="product-discount-rate">-2 %</span>
-					</a>
-					<button class="btn-red btn-large">Add to Cart</button>
-				</div>
-				<div class="span3 product-box">
-					<a href="#">
-						<img src="../Resources/products/blackberry-2662-56776-1-catalog.jpg" />
-						BlackBerry Z10 - LCD 4.2'' / 8MP / 16GB / Black
-							<span class="old-product-price">728.5 $</span>
-						<span class="product-price">633.513 $</span>
-						<span class="product-discount-rate">-13 %</span>
-					</a>
-					<button class="btn-red btn-large">Add to Cart</button>
-				</div>
-				<div class="span3 product-box">
-					<a href="#">
-						<img src="../Resources/products/nokia-7194-07184-1-catalog.jpg" />
-						Nokia Lumia 620 - TFT 3.8'' / 5MP / 8GB / Black
-							<span class="old-product-price">246.7 $</span>
-						<span class="product-price">225.553 $</span>
-						<span class="product-discount-rate">-9 %</span>
-					</a>
-					<button class="btn-red btn-large">Add to Cart</button>
-				</div>
-			</div>
-			<!--/ row-products -->
-				
-			<!-- row-products -->
-			<div class="row-fluid row-products">
-				<a href="#" class="clearfix">
-					<h3><span class="font-red">Special</span> Deals</h3>
-					<span>View more&nbsp;&raquo; </span>
-				</a>
-				<div class="span3 product-box">
-					<a href="#">
-						<img src="../Resources/products/apple-4397-74964-1-catalog.jpg" />
-						Apple iPad 4 (with Retina display) - 32GB / Wifi / White
-							<span class="old-product-price">681.5 $</span>
-						<span class="product-price">634.453 $</span>
-						<span class="product-discount-rate">-7 %</span>
-					</a>
-					<button class="btn-red btn-large">Add to Cart</button>
-				</div>
-				<div class="span3 product-box">
-					<a href="#">
-						<img src="../Resources/products/samsung-3642-11236-1-catalog.jpg" />
-						Samsung Galaxy S4 (i9500) - Full HD 4.99'' / 13MP / 16GB / White
-							<span class="old-product-price">715.763 $</span>
-						<span class="product-price">704.953 $</span>
-						<span class="product-discount-rate">-2 %</span>
-					</a>
-					<button class="btn-red btn-large">Add to Cart</button>
-				</div>
-				<div class="span3 product-box">
-					<a href="#">
-						<img src="../Resources/products/blackberry-2662-56776-1-catalog.jpg" />
-						BlackBerry Z10 - LCD 4.2'' / 8MP / 16GB / Black
-							<span class="old-product-price">728.5 $</span>
-						<span class="product-price">633.513 $</span>
-						<span class="product-discount-rate">-13 %</span>
-					</a>
-					<button class="btn-red btn-large">Add to Cart</button>
-				</div>
-				<div class="span3 product-box">
-					<a href="#">
-						<img src="../Resources/products/nokia-7194-07184-1-catalog.jpg" />
-						Nokia Lumia 620 - TFT 3.8'' / 5MP / 8GB / Black
-							<span class="old-product-price">246.7 $</span>
-						<span class="product-price">225.553 $</span>
-						<span class="product-discount-rate">-9 %</span>
-					</a>
-					<button class="btn-red btn-large">Add to Cart</button>
-				</div>
-			</div>
-			<!--/ row-products -->
 			
 			<!-- row-products -->
-			<div class="row-fluid row-products">
+			<!--<div class="row-fluid row-products">
 				<a href="#" class="clearfix">
 					<h3><span class="font-red">Special</span> Deals</h3>
 					<span>View more&nbsp;&raquo; </span>
@@ -210,10 +112,11 @@
 					</a>
 					<button class="btn-red btn-large">Add to Cart</button>
 				</div>
-			</div>
+			</div>-->
 			<!--/ row-products -->
-
-			<div class="row-fluid">
+				
+			
+			<!--<div class="row-fluid">
 				<div class="span6 feature-box">
 					<img src="../Resources/img/best_sellers.jpg" class="pull-right" />
 					<h4><span class="font-red">Best</span> Sellers</h4>
@@ -245,7 +148,7 @@
 						Eiusmod tempor incididunt ut labore et dolore magna aliqua.
 					</p>
 				</div>
-			</div>
+			</div>-->
 
 		</div>
 		<!--/ container-fluid -->
