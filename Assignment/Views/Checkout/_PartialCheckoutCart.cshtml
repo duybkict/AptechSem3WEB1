@@ -24,17 +24,7 @@
 					<span>@item.name</span>
 				</td>
 				<td style="width: 15%; text-align: center;">
-					<span class="product-price">@String.Format("{0:0.000}", item.price) $</span><br />
-
-					@if (item.old_price > 0 && item.old_price > item.price) {
-						<span class="old-product-price">@String.Format("{0:0.000}", item.old_price) $</span>
-					}
-
-					@{var saleRate = Convert.ToInt32((item.old_price - item.price) / item.old_price * 100);}
-
-					@if (saleRate > 0) {
-						<span class="product-discount-rate">@saleRate % Off</span>
-					}
+					@String.Format("{0:0.000}", item.price) $
 				</td>
 				<td style="width: 10%; text-align: center;">
 					@item.quantity
